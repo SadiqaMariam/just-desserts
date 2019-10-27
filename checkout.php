@@ -1,6 +1,7 @@
 <?php
     include 'components/header.php';
     include 'components/footer.php';
+    include 'components/checkoutDetails.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +12,16 @@
         <link rel="stylesheet" href="stylesheets/common.css">
         <link rel="stylesheet" href="stylesheets/header.css">
         <link rel="stylesheet" href="stylesheets/footer.css">
+        <link rel="stylesheet" href="stylesheets/pageContent.css">
     </head>
     <body>
         <?php echo getHeader('checkout'); ?>
 
         <div class="pageContent">
-           <p>Checkout Page</p>
+            <div class="pageActiveContent">
+                <p>Shopping Cart</p>
+                <?php echo getCheckoutDetails(); ?>
+            </div>
         </div>
     </body>
     <?php echo getFooter(); ?>

@@ -11,12 +11,15 @@
         <link rel="stylesheet" href="stylesheets/common.css">
         <link rel="stylesheet" href="stylesheets/header.css">
         <link rel="stylesheet" href="stylesheets/footer.css">
+        <link rel="stylesheet" href="stylesheets/pageContent.css">
     </head>
     <body>
         <?php echo getHeader('home'); ?>
 
         <div class="pageContent">
-           <p>Home Page</p>
+            <div class="pageActiveContent">
+                <p>Home Page</p>
+            </div>
         </div>
     </body>
     <?php echo getFooter(); ?>

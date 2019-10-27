@@ -11,15 +11,18 @@
         <link rel="stylesheet" href="stylesheets/common.css">
         <link rel="stylesheet" href="stylesheets/header.css">
         <link rel="stylesheet" href="stylesheets/footer.css">
+        <link rel="stylesheet" href="stylesheets/pageContent.css">
     </head>
     <body>
         <?php echo getHeader('menu'); ?>
 
         <div class="pageContent">
-           <p>Menu Page</p>
-           <a href="cakes.php">Cakes<a>
-           <a href="icecreams.php">Ice-creams<a>
-           <a href="cupcakes.php">Cup cakes<a>
+            <div class="pageActiveContent">
+                <p>Menu Page</p>
+                <a href="cakes.php">Cakes<a>
+                <a href="icecreams.php">Ice-creams<a>
+                <a href="cupcakes.php">Cup cakes<a>
+            </div>
         </div>
     </body>
     <?php echo getFooter(); ?>

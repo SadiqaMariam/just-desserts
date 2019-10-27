@@ -25,6 +25,16 @@
 
     function getProductsByCategoryFromDatabaseTable($conn, $cateogry){
         $sql = "SELECT * FROM Products WHERE Category = '".$cateogry."'";
+        return getProductResultsFromQuery($conn, $sql);
+    }
+
+    function getProductsByListOfProductIdsFromDatabaseTable($conn, $productIds){
+        $productIdsQuery = implode(', ', $productIds);
+        $sql = "SELECT * FROM Products WHERE ProductId IN (".$productIdsQuery.")";
+        return getProductResultsFromQuery($conn, $sql);
+    }
+
+    function getProductResultsFromQuery($conn, $sql){
         $result = $conn->query($sql);
         $products = array();
         if($result -> num_rows > 0){
