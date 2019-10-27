@@ -69,7 +69,8 @@
     font-size: 1.2em;
     text-align: right;
 }
-.productButtonAddToCart{
+
+.productButtonAddToCartActive, .productButtonAddToCartInactive{
     width: 100%;
     border-radius: 10px;
     padding: 10px;
@@ -78,10 +79,24 @@
     font-size: 1.0em;
     opacity: 0.7;
 }
-.productButtonAddToCart:hover{
+.productButtonAddToCartActive{
+    background-color: #8e44ad;
+}
+.productButtonAddToCartInactive{
+    background-color: #ecf0f1;
+    pointer-events: none;
+}
+.productButtonAddToCartActive:hover,
+.productButtonAddToCartInactive:hover{
     opacity: 1.0;
 }
-.productButtonAddToCart a {
-    color: white;
+.productButtonAddToCartActive a,
+.productButtonAddToCartInactive a{
     padding: 10px;
+}
+.productButtonAddToCartActive a{
+    color: white;
+}
+.productButtonAddToCartInactive a{
+    color: black;
 }

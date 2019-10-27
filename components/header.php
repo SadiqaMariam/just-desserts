@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     function getHeader($currentPage){
         $getHeaderNavigationWithActiveTab = function ($currentPage, $navTab){
             $navRef = $navTab.".php";

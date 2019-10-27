@@ -9,6 +9,7 @@
     if(isset($_GET['addToCart'])){
         $_SESSION['cart'][] = $_GET['addToCart'];
         header('location: '.$_SERVER['PHP_SELF'].'?'.SID);
+        exit();
     }
 
     function getProductCards($category){
@@ -24,8 +25,14 @@
                 return "<p class='productCost'>S$".$productPrice."</p>";
             };
 
-            $getProductButtonAddToCartLink = function($productId){
+            $addToCartLink = function($productId){
                 return "<a href=".$_SERVER['PHP_SELF']."?addToCart=".$productId.">Add to cart</a>";
+            };
+
+            $getProductButtonAddToCart = function($productId, $getLink){
+                return isset($_SESSION['cart']) && in_array($productId, $_SESSION['cart']) 
+                    ? "<button class='productButtonAddToCartInactive'>".$getLink($productId)."</button>" 
+                    : "<button class='productButtonAddToCartActive'>".$getLink($productId)."</button>";
             };
 
             return 
@@ -38,9 +45,7 @@
                     <p class="productName">{$product->get_name()}</p>
                     <p class="productDescription">{$product->get_description()}</p>
                     {$getProductPrice($product->get_price())}
-                    <button class="productButtonAddToCart">
-                        {$getProductButtonAddToCartLink($product->get_productId())}
-                    </button>
+                    {$getProductButtonAddToCart($product->get_productId(), $addToCartLink)}
                 </div>
             </div>
 HTML;
