@@ -24,7 +24,7 @@
         };
 
         return      
-        <<<HTML
+<<<HTML
             <div class="header">
                 <div class="headerTopWrapper">
                     <img class="img headerLogo" src="images/JustDessertsLogo.png" />

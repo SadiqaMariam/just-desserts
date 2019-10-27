@@ -1,7 +1,7 @@
 <?php 
     function getFooter(){
         return      
-        <<<HTML
+<<<HTML
             <footer class="footer">
                 <div class="footerNavigate">
                     <p class="footerTitles">Navigations</p>

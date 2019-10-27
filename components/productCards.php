@@ -36,7 +36,7 @@
             };
 
             return 
-            <<<HTML
+<<<HTML
             <div class="productCardWrapper">
                 <div class="productCard">
                     <div class="productImgWrapper">
