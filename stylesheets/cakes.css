@@ -1,0 +1,66 @@
+.cakesPageContent{
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+.menuPageLinksActive{
+    color: #8e44ad;
+    border-bottom: 4px solid #8e44ad;
+    opacity: 0.7;
+}
+
+.menuPageLinksActive:hover{
+    color: #8e44ad;
+    opacity: 1.0;
+}
+
+.menuPageLinksInactive{
+    color: #7f8c8d;
+    opacity: 0.7;
+}
+
+.menuPageLinksInactive:hover{
+    color: #7f8c8d;
+    opacity: 1.0;
+}
+
+.allCakes{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.cakeCardWrapper{
+    width: calc(25%);
+}
+
+.cakeCard{
+    border: 1px solid #ecf0f1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    padding: 10px;
+}
+.cakeImgWrapper{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.cakeImg{
+    width: 100%;
+    max-width:350px;
+    height: auto;
+    border-radius: 10px;
+}
+.cakeDescription{
+    color: #7f8c8d;
+    font-style: italic;
+    font-size: 0.8em;
+}
+.cakeCost{
+    color: #8e44ad;
+    font-style: bold;
+    font-size: 1.2em;
+    text-align: right;
+}
