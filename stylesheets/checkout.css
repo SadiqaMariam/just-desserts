@@ -48,3 +48,7 @@
 .checkoutTableHeader{
     padding: 10px;
 }
+.checkoutQtyInput{
+    font-size: 1.0em;
+    width: 60px;
+}

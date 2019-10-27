@@ -34,7 +34,7 @@
                             <span class="checkoutPrice">S$ {$product->get_price()}<span>
                         </td>
                         <td headers="checkoutProuductQtyColumn">
-                            <p class="checkoutQty">1</p>
+                            <input type="number" name="checkoutQtyInput" min="1" class="input checkoutQtyInput" value="1" />
                         </td>
                         <td headers="checkoutProuductSubtotalColumn">
                             <p class="checkoutSubTotalPrice">S$ {$product->get_price()}<p>
