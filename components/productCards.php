@@ -6,13 +6,17 @@
         $dbConnection = getDatabaseConnection();
         $products = getProductsByCategoryFromDatabaseTable($dbConnection, "cake");
 
-        $getProductCard = function($name, $description, $price){
+        $getProductCard = function($productId, $name, $description, $price, $imagePath){
+            $getProductImage = function($imagePath){
+                return "<img class='productImg' src='images/cakes/".$imagePath."'/>";
+            };
+
             return 
             <<<HTML
             <div class="productCardWrapper">
                 <div class="productCard">
                     <div class="productImgWrapper">
-                        <img class="productImg" src="images/cakes/cheesecake.png" />
+                        {$getProductImage($imagePath)}
                     </div>
                     <p class="productName">{$name}</p>
                     <p class="productDescription">{$description}</p>
@@ -39,9 +43,11 @@ HTML;
             }
 
             $productHTML = $productHTML.$getProductCard(
+                $product->get_productId(),
                 $product->get_name(),
                 $product->get_description(),
-                $product->get_price()
+                $product->get_price(),
+                $product->get_image()
             );
             $productCount = $productCount + 1;
         }
@@ -51,27 +57,5 @@ HTML;
         }
 
         return $productHTML;
-
-        return      
-        <<<HTML
-            <div class="allproductsRow">
-                {$getProductCard()}
-                {$getProductCard()}
-                {$getProductCard()}
-                {$getProductCard()}
-            </div>
-            <div class="allproductsRow">
-                {$getProductCard()}
-                {$getProductCard()}
-                {$getProductCard()}
-                {$getProductCard()}
-            </div>
-            <div class="allproductsRow">
-                {$getProductCard()}
-                {$getProductCard()}
-                {$getProductCard()}
-                {$getProductCard()}
-            </div>
-HTML;
     }
 ?>
