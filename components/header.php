@@ -14,7 +14,7 @@
         };
 
         $getHeaderShoppingCartLink = function($imageName){
-            return "<a href=''><img class='img headerShoppingCartImg' src='images/".$imageName."' /></a>";
+            return "<a href='checkout.php'><img class='img headerShoppingCartImg' src='images/".$imageName."' /></a>";
         };
 
         $getHeaderShoppingCartButton = function($getLink){
