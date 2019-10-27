@@ -1,5 +1,17 @@
 <?php 
-    function getHeader(){
+    function getHeader($currentPage){
+        $getHeaderNavigationWithActiveTab = function ($currentPage, $navTab){
+            $navRef = $navTab.".php";
+            $navTabName = ucfirst($navTab);
+            $navClass = "";
+    
+            if($currentPage === $navTab){
+                $navClass = "headerNavigationActiveTab";
+            }
+    
+            return "<a href={$navRef} class={$navClass}>{$navTabName}</a>";
+        };
+
         return      
         <<<HTML
             <div class="header">
@@ -23,9 +35,9 @@
                 </div>
 
                 <div class="headerNavigation">
-                    <a href="" class="headerNavigationActiveTab">Home</a>
-                    <a href="">Menu</a>
-                    <a href="">Contact</a>
+                    {$getHeaderNavigationWithActiveTab($currentPage, "home")}
+                    {$getHeaderNavigationWithActiveTab($currentPage, "menu")}
+                    {$getHeaderNavigationWithActiveTab($currentPage, "contact")}
                 </div>
             </div>
 HTML;

@@ -11,10 +11,10 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <?php echo getHeader('home'); ?>
+        <?php echo getHeader('menu'); ?>
 
         <div class="pageContent">
-           <p>Home Page</p>
+           <p>Menu Page</p>
         </div>
     </body>
     <?php echo getFooter(); ?>
