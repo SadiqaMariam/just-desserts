@@ -47,7 +47,7 @@ HTML;
         };
 
         $columnsPerRow = 4;
-        $productHTML = "<p>".count($_SESSION['cart'])."</p>";
+        $productHTML = "";
 
         $productCount = 1;
         foreach($products as &$product){
