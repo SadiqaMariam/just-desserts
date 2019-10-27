@@ -53,6 +53,11 @@
     height: auto;
     border-radius: 10px;
 }
+.productName{
+    color: #8e44ad;
+    font-style: bold;
+    font-size: 1.2em;
+}
 .productDescription{
     color: #7f8c8d;
     font-style: italic;
