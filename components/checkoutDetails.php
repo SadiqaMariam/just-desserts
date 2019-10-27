@@ -17,24 +17,27 @@
                 $tableRows = $tableRows.
 <<<HTML
                     <tr class="checkoutProductRow">
-                        <td headers="checkoutProductRemove">
-                            <button>Delete</button>
+                        <td headers="checkoutProductRemoveColumn">
+                            <button class = "checkoutRemoveButton">
+                                <img class="checkoutRemoveButtonImg" src="images/remove.png" />
+                            </button>
                         </td>
-                        <td headers="checkoutProuductImg">
+                        <td headers="checkoutProductImgColumn">
                             {$getProductImage(
                                 $product->get_category(), 
                                 $product->get_image())
                             }
                         </td>
-                        <td headers="checkoutProuductDetails">
-                            <p class="checkoutName">{$product->get_name()}<p>
-                            <p class="checkoutPrice">{$product->get_price()}<p>
+                        <td headers="checkoutProuductDetailsColumn">
+                            <span class="checkoutName">{$product->get_name()}<span>
+                            <br>
+                            <span class="checkoutPrice">S$ {$product->get_price()}<span>
                         </td>
-                        <td headers="checkoutProuductQty">
+                        <td headers="checkoutProuductQtyColumn">
                             <p class="checkoutQty">1</p>
                         </td>
-                        <td headers="checkoutProuductSubtotal">
-                            <p class="checkoutSubTotalPrice">{$product->get_price()}<p>
+                        <td headers="checkoutProuductSubtotalColumn">
+                            <p class="checkoutSubTotalPrice">S$ {$product->get_price()}<p>
                         </td>
                     </tr>
 HTML;
@@ -44,20 +47,22 @@ HTML;
 
         return 
 <<<HTML
-            <table class="checkoutTable">
-                <thead class="checkoutTableHeader">
-                    <tr class="checkoutTableHeaderRow">
-                        <th id="checkoutProductRemove"></th>
-                        <th id="checkoutProuductImg">Product</th>
-                        <th id="checkoutProuductDetails">Details</th>
-                        <th id="checkoutProuductQty">Qty</th>
-                        <th id="checkoutProuductSubtotal">Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {$getCheckoutDetialRows($products, $getProductImage)}
-                </tbody>
-            </table>
+            <div class = "checkoutTableWrapper">
+                <table class="checkoutTable">
+                    <thead class="checkoutTableHeader">
+                        <tr class="checkoutTableHeaderRow">
+                            <th class="checkoutTableHeader" id="checkoutProductRemove"></th>
+                            <th class="checkoutTableHeader" id="checkoutProuductImg">Product</th>
+                            <th class="checkoutTableHeader" id="checkoutProuductDetails">Details</th>
+                            <th class="checkoutTableHeader" id="checkoutProuductQty">Qty</th>
+                            <th class="checkoutTableHeader" id="checkoutProuductSubtotal">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {$getCheckoutDetialRows($products, $getProductImage)}
+                    </tbody>
+                </table>
+            </div>
 HTML;
     }
 ?>

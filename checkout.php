@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="stylesheets/header.css">
         <link rel="stylesheet" href="stylesheets/footer.css">
         <link rel="stylesheet" href="stylesheets/pageContent.css">
+        <link rel="stylesheet" href="stylesheets/checkout.css">
     </head>
     <body>
         <?php echo getHeader('checkout'); ?>
