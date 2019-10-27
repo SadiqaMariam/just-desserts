@@ -2,6 +2,15 @@
     include 'database/databaseConnection.php';
     include 'database/ProductsTableManager.php';
 
+    if(!isset($_SESSION['cart'])){
+        $_SESSION['cart'] = array();
+    }
+
+    if(isset($_GET['addToCart'])){
+        $_SESSION['cart'][] = $_GET['addToCart'];
+        header('location: '.$_SERVER['PHP_SELF'].'?'.SID);
+    }
+
     function getProductCards($category){
         $dbConnection = getDatabaseConnection();
         $products = getProductsByCategoryFromDatabaseTable($dbConnection, $category);
@@ -14,6 +23,11 @@
             $getProductPrice = function($productPrice){
                 return "<p class='productCost'>S$".$productPrice."</p>";
             };
+
+            $getProductButtonAddToCartLink = function($productId){
+                return "<a href=".$_SERVER['PHP_SELF']."?addToCart=".$productId.">Add to cart</a>";
+            };
+
             return 
             <<<HTML
             <div class="productCardWrapper">
@@ -25,7 +39,7 @@
                     <p class="productDescription">{$product->get_description()}</p>
                     {$getProductPrice($product->get_price())}
                     <button class="productButtonAddToCart">
-                        <a href="">Add to cart</a>
+                        {$getProductButtonAddToCartLink($product->get_productId())}
                     </button>
                 </div>
             </div>
@@ -33,7 +47,7 @@ HTML;
         };
 
         $columnsPerRow = 4;
-        $productHTML = "";
+        $productHTML = "<p>".count($_SESSION['cart'])."</p>";
 
         $productCount = 1;
         foreach($products as &$product){
