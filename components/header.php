@@ -13,17 +13,23 @@
             return "<a href={$navRef} class={$navClass}>{$navTabName}</a>";
         };
 
+        $getHeaderShoppingCartLink = function($imageName){
+            return "<a href=''><img class='img headerShoppingCartImg' src='images/".$imageName."' /></a>";
+        };
+
+        $getHeaderShoppingCartButton = function($getLink){
+            return isset($_SESSION['cart']) && count($_SESSION['cart']) > 0
+                ? "<button class='button headerCartButtonActive'>".$getLink('shoppingCartActive.png')."</button>"
+                : "<button class='button headerCartButtonInactive'>".$getLink('shoppingCartInactive.png')."</button>";
+        };
+
         return      
         <<<HTML
             <div class="header">
                 <div class="headerTopWrapper">
                     <img class="img headerLogo" src="images/JustDessertsLogo.png" />
                     <div class="headerTopOptionsWrapper">
-                        <button class="button headerCartButton">
-                            <a href="">
-                                <img class="img headerShoppingCartImg" src="images/shoppingCartIcon.png" />
-                            </a>
-                        </button>
+                        {$getHeaderShoppingCartButton($getHeaderShoppingCartLink)}
                         <form class="form headerSearchOrderForm">
                             <input class = "input headerSearchOrderInput" type="text" name="headerSearchOrderInput" size="30" placeholder="Order Id">
                             <button type="submit" class="button headerSearchOrderButton">

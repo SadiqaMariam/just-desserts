@@ -29,18 +29,29 @@
     justify-content: flex-end;
     align-items: center;
 }
-.headerCartButton, .headerSearchOrderButton
+.headerCartButtonInactive, 
+.headerCartButtonActive,
+.headerSearchOrderButton
 {
     border-radius: 50%;
     padding: 15px;
     margin: 0px 10px;
     opacity: 0.5;
 }
+.headerCartButtonInactive{
+    pointer-events: none;
+}
 .headerSearchOrderButton{
     opacity: 0.8;
     background-color: #8e44ad;
 }
-.headerCartButton:hover, .headerSearchOrderButton:hover{
+.headerCartButtonActive{
+    opacity: 0.8;
+    background-color: #8e44ad;
+}
+.headerCartButtonInactive:hover, 
+.headerCartButtonActive:hover,
+.headerSearchOrderButton:hover{
     opacity: 1;
 }
 .headerShoppingCartImg{
