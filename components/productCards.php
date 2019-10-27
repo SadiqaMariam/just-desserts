@@ -2,13 +2,13 @@
     include 'database/databaseConnection.php';
     include 'database/ProductsTableManager.php';
 
-    function getProductCards(){
+    function getProductCards($category){
         $dbConnection = getDatabaseConnection();
-        $products = getProductsByCategoryFromDatabaseTable($dbConnection, "cake");
+        $products = getProductsByCategoryFromDatabaseTable($dbConnection, $category);
 
-        $getProductCard = function($productId, $name, $description, $price, $imagePath){
-            $getProductImage = function($imagePath){
-                return "<img class='productImg' src='images/cakes/".$imagePath."'/>";
+        $getProductCard = function($category, $productId, $name, $description, $price, $imagePath){
+            $getProductImage = function($category, $imagePath){
+                return "<img class='productImg' src='images/".$category."s/".$imagePath."'/>";
             };
 
             return 
@@ -16,7 +16,7 @@
             <div class="productCardWrapper">
                 <div class="productCard">
                     <div class="productImgWrapper">
-                        {$getProductImage($imagePath)}
+                        {$getProductImage($category, $imagePath)}
                     </div>
                     <p class="productName">{$name}</p>
                     <p class="productDescription">{$description}</p>
@@ -43,6 +43,7 @@ HTML;
             }
 
             $productHTML = $productHTML.$getProductCard(
+                $category,
                 $product->get_productId(),
                 $product->get_name(),
                 $product->get_description(),

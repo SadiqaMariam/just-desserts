@@ -213,7 +213,7 @@ VALUES (
     "The garden strawberry is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries, which are cultivated worldwide for their fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness.", 
     1.60,
     "cupcake",
-    "StraeberryCupcake.png"
+    "StrawberryCupcake.png"
 );
 
 INSERT INTO JustDesserts.Products (Name, Description, Price, Category, Image)
@@ -240,7 +240,7 @@ VALUES (
     "The garden strawberry is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries, which are cultivated worldwide for their fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness.", 
     1.10,
     "icecream",
-    "StraeberryIceCream.png"
+    "StrawberryIceCream.png"
 );
 
 INSERT INTO JustDesserts.Products (Name, Description, Price, Category, Image)

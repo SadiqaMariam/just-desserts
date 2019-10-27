@@ -20,11 +20,11 @@
         <div class="pageContent">
             <div class="cakesPageContent">
                 <div class="menuPageLinks">
-                    <a class="menuPageLinksActive" href="cakes.php">Cakes<a> | 
+                    <a class="menuPageLinksInactive" href="cakes.php">Cakes<a> | 
                     <a class="menuPageLinksInactive" href="icecreams.php">Ice-creams<a> | 
-                    <a class="menuPageLinksInactive" href="cupcakes.php">Cup cakes<a>
+                    <a class="menuPageLinksActive" href="cupcakes.php">Cup cakes<a>
                 </div>
-                <?php echo getProductCards('cake'); ?>
+                <?php echo getProductCards('cupcake'); ?>
             </div>
         </div>
     </body>
