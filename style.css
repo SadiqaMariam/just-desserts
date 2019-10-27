@@ -8,6 +8,7 @@ html, body {
 }
 .pageContent{
     height: calc(100% - 281px);
+    overflow-y: auto;
 }
 .input{
     padding: 10px;
