@@ -6,21 +6,24 @@
         $dbConnection = getDatabaseConnection();
         $products = getProductsByCategoryFromDatabaseTable($dbConnection, $category);
 
-        $getProductCard = function($category, $productId, $name, $description, $price, $imagePath){
+        $getProductCard = function($category, $product){
             $getProductImage = function($category, $imagePath){
                 return "<img class='productImg' src='images/".$category."s/".$imagePath."'/>";
             };
 
+            $getProductPrice = function($productPrice){
+                return "<p class='productCost'>S$".$productPrice."</p>";
+            };
             return 
             <<<HTML
             <div class="productCardWrapper">
                 <div class="productCard">
                     <div class="productImgWrapper">
-                        {$getProductImage($category, $imagePath)}
+                        {$getProductImage($category, $product->get_image())}
                     </div>
-                    <p class="productName">{$name}</p>
-                    <p class="productDescription">{$description}</p>
-                    <p class="productCost">S$$price</p>
+                    <p class="productName">{$product->get_name()}</p>
+                    <p class="productDescription">{$product->get_description()}</p>
+                    {$getProductPrice($product->get_price())}
                     <button class="productButtonAddToCart">
                         <a href="">Add to cart</a>
                     </button>
@@ -42,14 +45,7 @@ HTML;
                 $productHTML = $productHTML."<div class='allproductsRow'>";
             }
 
-            $productHTML = $productHTML.$getProductCard(
-                $category,
-                $product->get_productId(),
-                $product->get_name(),
-                $product->get_description(),
-                $product->get_price(),
-                $product->get_image()
-            );
+            $productHTML = $productHTML.$getProductCard($category, $product);
             $productCount = $productCount + 1;
         }
 
