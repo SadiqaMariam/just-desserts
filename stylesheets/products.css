@@ -24,43 +24,59 @@
     opacity: 1.0;
 }
 
-.allCakes{
+.allproductsRow{
     padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
 }
 
-.cakeCardWrapper{
+.productCardWrapper{
     width: calc(25%);
 }
 
-.cakeCard{
+.productCard{
     border: 1px solid #ecf0f1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 10px;
     padding: 10px;
 }
-.cakeImgWrapper{
+.productImgWrapper{
     width: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
 }
-.cakeImg{
+.productImg{
     width: 100%;
     max-width:350px;
     height: auto;
     border-radius: 10px;
 }
-.cakeDescription{
+.productDescription{
     color: #7f8c8d;
     font-style: italic;
     font-size: 0.8em;
 }
-.cakeCost{
+.productCost{
     color: #8e44ad;
     font-style: bold;
     font-size: 1.2em;
     text-align: right;
+}
+.productButtonAddToCart{
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #8e44ad;
+    font-size: 1.0em;
+    opacity: 0.7;
+}
+.productButtonAddToCart:hover{
+    opacity: 1.0;
+}
+.productButtonAddToCart a {
+    color: white;
+    padding: 10px;
 }
