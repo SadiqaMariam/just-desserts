@@ -7,7 +7,7 @@
         $productIds = $_SESSION['cart'];
         $products = getProductsByListOfProductIdsFromDatabaseTable($dbConnection, $productIds);
 
-        $getCheckoutDetialRows = function($products){
+        $getCheckoutDetailRows = function($products){
             $getProductImage = function($category, $imagePath){
                 return "<img class='checkoutProductImg' src='images/".$category."s/".$imagePath."'/>";
             };
@@ -63,6 +63,40 @@ HTML;
             return $tableRows;
         };
 
+        $getCheckoutSummary = function($products){
+            $gstPercentage = 7;
+            $total = 0;
+            $getMoneyValue = function($value){
+                return number_format((float)$value, 2, '.', '');
+            };
+
+            foreach($products as &$product){
+                $total = $total + $product->get_price();
+            }
+
+            $total = $getMoneyValue($total);
+            $gstAmount = ($total * 7) / 100;
+            $gstAmount = $getMoneyValue($gstAmount);
+            $netTotal = $total + $gstAmount;
+            $netTotal = $getMoneyValue($netTotal);
+
+            return
+<<<HTML
+            <tr class = "checkoutSummaryTotalRow">
+                <td>Total</td>
+                <td><span id="checkoutSummaryTotal">S$ {$total}</span></td>
+            </tr>
+            <tr class = "checkoutSummaryGstRow">
+                <td>GST(7%)</td>
+                <td><span id="checkoutSummaryGst">S$ {$gstAmount}</span></td>
+            </tr>
+            <tr class = "checkoutSummaryNetTotalRow">
+                <td>Net total</td>
+                <td><span id="checkoutSummaryNetTotal">S$ {$netTotal}</span></td>
+            </tr>
+HTML;
+        };
+
         return 
 <<<HTML
         <div class = "checkoutDetails">
@@ -78,7 +112,7 @@ HTML;
                         </tr>
                     </thead>
                     <tbody>
-                        {$getCheckoutDetialRows($products)}
+                        {$getCheckoutDetailRows($products)}
                     </tbody>
                 </table>
             </div>
@@ -87,18 +121,7 @@ HTML;
                     <p class = "checkoutSummaryHeader">Summary</p>
                     <table class = "checkoutSummaryTable">
                         <tbody>
-                            <tr class = "checkoutSummaryTotalRow">
-                                <td>Total</td>
-                                <td><span class="checkoutSummaryTotal">S$40.00</span></td>
-                            </tr>
-                            <tr class = "checkoutSummaryGstRow">
-                                <td>GST(7%)</td>
-                                <td><span class="checkoutSummaryGst">S$4.00</span></td>
-                            </tr>
-                            <tr class = "checkoutSummaryNetTotalRow">
-                                <td>Net total</td>
-                                <td><span class = "checkoutSummaryNetTotal">S$44.00</span></td>
-                            </tr>
+                            {$getCheckoutSummary($products)}
                         </tbody>
                     </table>
                     <button class="button checkoutSummaryButton"><a href="">Check out</a></button>
