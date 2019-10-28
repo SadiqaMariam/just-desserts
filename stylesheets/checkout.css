@@ -1,6 +1,61 @@
+.checkoutDetails{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.checkoutSummaryWrapper{
+    flex: 1;
+}
+
+.checkoutSummary{
+    padding: 0px 10px 0px 10px;
+    margin: 0px 15px 0px 15px;
+    border-left: 5px solid #9b59b6;
+    position: absolute;
+}
+
+.checkoutSummaryHeader{
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #8e44ad;
+}
+
+.checkoutSummaryButton{
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #27ae60;
+    font-size: 1.0em;
+    opacity: 0.7;
+}
+.checkoutSummaryButton:hover{
+    opacity: 1.0; 
+}
+.checkoutSummaryButton a{
+    padding: 10px;
+    color: white;
+}
+.checkoutSummaryTotalRow, 
+.checkoutSummaryGstRow{
+    font-size: 1.0em;
+    color: #7f8c8d;
+}
+.checkoutSummaryNetTotalRow{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #9b59b6;
+}
+
+.checkoutSummaryTable{
+    border-collapse: collapse;
+}
+
 .checkoutTableWrapper{
     display: flex;
     justify-content: center;
+    flex: 3;
 }
 
 .checkoutTable{
@@ -10,7 +65,8 @@
     border-collapse: collapse;
 }
 
-.checkoutTable td {
+.checkoutTable td,
+.checkoutSummaryTable td {
     padding: 10px;
 }
 .checkoutTable tr:nth-child(odd) {

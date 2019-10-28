@@ -65,6 +65,7 @@ HTML;
 
         return 
 <<<HTML
+        <div class = "checkoutDetails">
             <div class = "checkoutTableWrapper">
                 <table class="checkoutTable">
                     <thead class="checkoutTableHeader">
@@ -81,6 +82,29 @@ HTML;
                     </tbody>
                 </table>
             </div>
+            <div class = "checkoutSummaryWrapper">
+                <div class = "checkoutSummary">
+                    <p class = "checkoutSummaryHeader">Summary</p>
+                    <table class = "checkoutSummaryTable">
+                        <tbody>
+                            <tr class = "checkoutSummaryTotalRow">
+                                <td>Total</td>
+                                <td><span class="checkoutSummaryTotal">S$40.00</span></td>
+                            </tr>
+                            <tr class = "checkoutSummaryGstRow">
+                                <td>GST(7%)</td>
+                                <td><span class="checkoutSummaryGst">S$4.00</span></td>
+                            </tr>
+                            <tr class = "checkoutSummaryNetTotalRow">
+                                <td>Net total</td>
+                                <td><span class = "checkoutSummaryNetTotal">S$44.00</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="button checkoutSummaryButton"><a href="">Check out</a></button>
+                </div>
+            </div>
+        </div>
 HTML;
     }
 ?>
