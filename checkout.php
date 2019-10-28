@@ -2,6 +2,10 @@
     include 'components/header.php';
     include 'components/footer.php';
     include 'components/checkoutDetails.php';
+
+    if(!isset($_SESSION['cart'])){
+        header('location: menu.php');
+    }
 ?>
 
 <!DOCTYPE html>

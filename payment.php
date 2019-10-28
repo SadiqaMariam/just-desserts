@@ -6,6 +6,10 @@
     include 'database/databaseConnection.php';
     include 'database/ProductsTableManager.php';
 
+    if(!isset($_SESSION['cart'])){
+        header('location: menu.php');
+    }
+
     class CheckoutOrder {
         public $ProductId;
         public $Quantity;

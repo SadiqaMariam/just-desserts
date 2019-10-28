@@ -6,6 +6,10 @@
     include 'database/OrdersTableManager.php';
     include 'database/ProductOrdersTableManager.php';
 
+    if(!isset($_SESSION['cart'])){
+        header('location: menu.php');
+    }
+    
     $productIds = $_SESSION['cart'];
     $dbConnection = getDatabaseConnection();
 
