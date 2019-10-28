@@ -20,6 +20,8 @@
         $quantity = $_POST["quantity_".$productId];
         addProductOrderToProductOrdersDatabase($dbConnection, $orderId, $productId, $quantity);
     };
+
+    unset($_SESSION['cart']);
 ?>
 
 <!DOCTYPE html>
