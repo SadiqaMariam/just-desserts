@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="stylesheets/footer.css">
         <link rel="stylesheet" href="stylesheets/pageContent.css">
         <link rel="stylesheet" href="stylesheets/checkout.css">
+        <script src="eventHandlers/checkout.js"></script>
     </head>
     <body>
         <?php echo getHeader('checkout'); ?>

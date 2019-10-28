@@ -7,11 +7,29 @@
         $productIds = $_SESSION['cart'];
         $products = getProductsByListOfProductIdsFromDatabaseTable($dbConnection, $productIds);
 
-        $getProductImage = function($category, $imagePath){
-            return "<img class='checkoutProductImg' src='images/".$category."s/".$imagePath."'/>";
-        };
+        $getCheckoutDetialRows = function($products){
+            $getProductImage = function($category, $imagePath){
+                return "<img class='checkoutProductImg' src='images/".$category."s/".$imagePath."'/>";
+            };
+    
+            $getQtyInput = function($productId){
+                $id = "checkoutQtyInput_".$productId;
+                $classes = "input checkoutQtyInput";
+                $attributes = "type='number' name='checkoutQtyInput' min='1' value='1'";
+                $onChangeHander = "oninput='checkoutQtyHandler(".$productId.")'";
+                return "<input ".$attributes." id=".$id." class='".$classes."'".$onChangeHander."/>";
+            };
 
-        $getCheckoutDetialRows = function($products, $getProductImage){
+            $getSubtotalField = function($productId, $productPrice){
+                $id = "checkoutSubTotalPrice_".$productId;
+                return "<p id='".$id."' class='checkoutSubTotalPrice'>S$ {$productPrice}<p>";
+            };
+
+            $getPriceField = function($productId, $productPrice){
+                $id = "checkoutPrice_".$productId;
+                return "<span id=".$id." class='checkoutPrice'>S$ {$productPrice}</span>";
+            };
+
             $tableRows = "";
             foreach($products as &$product){
                 $tableRows = $tableRows.
@@ -29,15 +47,15 @@
                             }
                         </td>
                         <td headers="checkoutProuductDetailsColumn">
-                            <span class="checkoutName">{$product->get_name()}<span>
+                            <span class="checkoutName">{$product->get_name()}</span>
                             <br>
-                            <span class="checkoutPrice">S$ {$product->get_price()}<span>
+                            {$getPriceField($product->get_productId(), $product->get_price())}
                         </td>
                         <td headers="checkoutProuductQtyColumn">
-                            <input type="number" name="checkoutQtyInput" min="1" class="input checkoutQtyInput" value="1" />
+                            {$getQtyInput($product->get_productId())}
                         </td>
                         <td headers="checkoutProuductSubtotalColumn">
-                            <p class="checkoutSubTotalPrice">S$ {$product->get_price()}<p>
+                            {$getSubtotalField($product->get_productId(), $product->get_price())}
                         </td>
                     </tr>
 HTML;
@@ -59,7 +77,7 @@ HTML;
                         </tr>
                     </thead>
                     <tbody>
-                        {$getCheckoutDetialRows($products, $getProductImage)}
+                        {$getCheckoutDetialRows($products)}
                     </tbody>
                 </table>
             </div>
