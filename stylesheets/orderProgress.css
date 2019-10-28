@@ -1,0 +1,46 @@
+.orderProgressBarWrapper {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.orderProgressBar li {
+    list-style-type: none;
+    width: 100px;
+    float: left;
+    clear: right;
+    font-size: 0.9em;
+    position: relative;
+    text-align: center;
+    color: #7f8c8d;
+}
+.orderProgressBar li::before {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    content: '';
+    border: 2px solid #7f8c8d;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.orderProgressBar li::after {
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #8e44ad;
+    top: 15px;
+    left: 0%;
+    z-index: -1;
+}
+
+.orderProgressBar li.orderProgressActive {
+    color: #8e44ad;
+}
+.orderProgressBar li.orderProgressActive:before {
+    border-color: #8e44ad;
+    background-color: #8e44ad;
+}

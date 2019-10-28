@@ -2,6 +2,7 @@
     include 'components/header.php';
     include 'components/footer.php';
     include 'components/orderProgress.php';
+    include 'components/paymentDetails.php';
     include 'database/databaseConnection.php';
     include 'database/ProductsTableManager.php';
 
@@ -52,14 +53,17 @@
         <link rel="stylesheet" href="stylesheets/header.css">
         <link rel="stylesheet" href="stylesheets/footer.css">
         <link rel="stylesheet" href="stylesheets/pageContent.css">
+        <link rel="stylesheet" href="stylesheets/orderProgress.css">
     </head>
     <body>
         <?php echo getHeader('payment'); ?>
 
         <div class="pageContent">
             <div class="pageActiveContent">
-                <p>Payment Page</p>
-                <?php echo getOrderProgress('payment') ?>
+                <?php 
+                    echo getOrderProgress('payment');
+                    echo getPaymentDetails($checkoutOrders, $totalPrice);
+                ?>
             </div>
         </div>
     </body>
