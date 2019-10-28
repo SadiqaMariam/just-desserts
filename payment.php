@@ -54,6 +54,7 @@
         <link rel="stylesheet" href="stylesheets/footer.css">
         <link rel="stylesheet" href="stylesheets/pageContent.css">
         <link rel="stylesheet" href="stylesheets/orderProgress.css">
+        <link rel="stylesheet" href="stylesheets/paymentDetails.css">
     </head>
     <body>
         <?php echo getHeader('payment'); ?>
