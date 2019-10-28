@@ -20,7 +20,6 @@
         function get_price() { return $this->Price; }
         function get_category() { return $this->Category; }
         function get_image() { return $this->Image; }
-
     }
 
     function getProductsByCategoryFromDatabaseTable($conn, $cateogry){

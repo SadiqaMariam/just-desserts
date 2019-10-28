@@ -15,7 +15,7 @@
             $getQtyInput = function($productId){
                 $id = "checkoutQtyInput_".$productId;
                 $classes = "input checkoutQtyInput";
-                $attributes = "type='number' name='checkoutQtyInput' min='1' value='1'";
+                $attributes = "type='number' name='".$id."' min='1' value='1'";
                 $onChangeHander = "oninput='checkoutQtyHandler(".$productId.")'";
                 return "<input ".$attributes." id=".$id." class='".$classes."'".$onChangeHander."/>";
             };
@@ -99,35 +99,37 @@ HTML;
 
         return 
 <<<HTML
-        <div class = "checkoutDetails">
-            <div class = "checkoutTableWrapper">
-                <table class="checkoutTable">
-                    <thead class="checkoutTableHeader">
-                        <tr class="checkoutTableHeaderRow">
-                            <th class="checkoutTableHeader" id="checkoutProductRemove"></th>
-                            <th class="checkoutTableHeader" id="checkoutProuductImg">Product</th>
-                            <th class="checkoutTableHeader" id="checkoutProuductDetails">Details</th>
-                            <th class="checkoutTableHeader" id="checkoutProuductQty">Qty</th>
-                            <th class="checkoutTableHeader" id="checkoutProuductSubtotal">Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {$getCheckoutDetailRows($products)}
-                    </tbody>
-                </table>
-            </div>
-            <div class = "checkoutSummaryWrapper">
-                <div class = "checkoutSummary">
-                    <p class = "checkoutSummaryHeader">Summary</p>
-                    <table class = "checkoutSummaryTable">
+        <form action="payment.php" method="post">
+            <div class = "checkoutDetails">
+                <div class = "checkoutTableWrapper">
+                    <table class="checkoutTable">
+                        <thead class="checkoutTableHeader">
+                            <tr class="checkoutTableHeaderRow">
+                                <th class="checkoutTableHeader" id="checkoutProductRemove"></th>
+                                <th class="checkoutTableHeader" id="checkoutProuductImg">Product</th>
+                                <th class="checkoutTableHeader" id="checkoutProuductDetails">Details</th>
+                                <th class="checkoutTableHeader" id="checkoutProuductQty">Qty</th>
+                                <th class="checkoutTableHeader" id="checkoutProuductSubtotal">Subtotal</th>
+                            </tr>
+                        </thead>
                         <tbody>
-                            {$getCheckoutSummary($products)}
+                            {$getCheckoutDetailRows($products)}
                         </tbody>
                     </table>
-                    <button class="button checkoutSummaryButton"><a href="">Check out</a></button>
+                </div>
+                <div class = "checkoutSummaryWrapper">
+                    <div class = "checkoutSummary">
+                        <p class = "checkoutSummaryHeader">Summary</p>
+                        <table class = "checkoutSummaryTable">
+                            <tbody>
+                                {$getCheckoutSummary($products)}
+                            </tbody>
+                        </table>
+                        <input type="submit" class="checkoutSummaryButton" value="Check Out" />
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
 HTML;
     }
 ?>
