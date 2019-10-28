@@ -35,7 +35,7 @@
         $checkoutOrder = new CheckoutOrder();
         $checkoutOrder->set_productId($productId);
         $checkoutOrder->set_quantity($quantity);
-        $checkoutOrder->set_quantity($pricePerUnit);
+        $checkoutOrder->set_price($pricePerUnit);
         array_push($checkoutOrders, $checkoutOrder);
         $totalPrice = $totalPrice + ($pricePerUnit * $quantity);
     }

@@ -1,5 +1,15 @@
 <?php 
     function getPaymentDetails($checkoutOrders, $price){
+        $getHiddenCheckoutOrderFields = function($checkoutOrders, $price){
+            $hiddenInputs = "";
+            foreach($checkoutOrders as &$checkoutOrder){
+                $productId = $checkoutOrder->get_productId();
+                $quantity = $checkoutOrder->get_quantity();
+                $hiddenInputs = $hiddenInputs."<input type='hidden' name='quantity_".$productId."' value='".$quantity."'/>";
+            }
+            return $hiddenInputs;
+        };
+
         return
 <<<HTML
             <div class="paymentDetailsWrapper">
@@ -9,7 +19,8 @@
                     </p>
                 </div>
                 <div class="paymentDetailsFormWrapper">
-                    <form class="paymentDetailsFormWrapper">
+                    <form class="paymentDetailsFormWrapper" action="orderreceived.php" method="post">
+                        {$getHiddenCheckoutOrderFields($checkoutOrders, $price)}
                         <fieldset class="paymentDetailsPersonalInformation">
                             <legend>Personal Information</legend>
 
