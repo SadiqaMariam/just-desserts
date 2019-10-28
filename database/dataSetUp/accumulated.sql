@@ -269,3 +269,18 @@ VALUES (
     "icecream",
     "CookiesCreamIceCream.png"
 );
+
+CREATE TABLE JustDesserts.Orders (
+    OrderId varchar(8) PRIMARY KEY,
+    Email varchar(255) NOT NULL,
+    Status varchar(32) NOT NULL
+);
+
+CREATE TABLE JustDesserts.ProductOrders (
+    OrderId varchar(8) NOT NULL,
+    ProductId int NOT NULL,
+    Quantity int DEFAULT 1,
+    CONSTRAINT PRIMARY KEY (OrderId, ProductId),
+    CONSTRAINT FOREIGN KEY  (OrderId) REFERENCES Orders(OrderId),
+    CONSTRAINT FOREIGN KEY  (ProductId) REFERENCES Products(ProductId)
+);
