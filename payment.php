@@ -62,7 +62,7 @@
             <div class="pageActiveContent">
                 <?php 
                     echo getOrderProgress('payment');
-                    echo getPaymentDetails($checkoutOrders, $totalPrice);
+                    echo getPaymentDetails($checkoutOrders, $netPrice);
                 ?>
             </div>
         </div>
