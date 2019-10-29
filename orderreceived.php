@@ -19,7 +19,7 @@
 
     $orderId = gen_uid();
     $email = $_POST['paymentUserEmail'];
-    addOrderToOrdersDatabaseTable($dbConnection, $orderId, $email, "received");
+    addOrderToOrdersDatabaseTable($dbConnection, $orderId, $email, "processing");
     foreach($productIds as &$productId){
         $quantity = $_POST["quantity_".$productId];
         addProductOrderToProductOrdersDatabase($dbConnection, $orderId, $productId, $quantity);

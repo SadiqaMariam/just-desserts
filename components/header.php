@@ -30,7 +30,7 @@
                     <img class="img headerLogo" src="images/JustDessertsLogo.png" />
                     <div class="headerTopOptionsWrapper">
                         {$getHeaderShoppingCartButton($getHeaderShoppingCartLink)}
-                        <form class="form headerSearchOrderForm">
+                        <form action="searchOrder.php" method="post" class="form headerSearchOrderForm">
                             <input class = "input headerSearchOrderInput" type="text" name="headerSearchOrderInput" size="30" placeholder="Order Id">
                             <button type="submit" class="button headerSearchOrderButton">
                                 <a href="">
