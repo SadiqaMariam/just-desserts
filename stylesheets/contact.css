@@ -1,0 +1,85 @@
+.contactWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.contactDetailsWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contactDetails{
+    padding: 0px 10px;
+    height: auto;
+    border-left: 5px solid #8e44ad;
+}
+.contactDetails h4, 
+.contactFeedbackContent h4{
+    color: #8e44ad;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.contactAddressMap{
+    margin: 20px;
+}
+.contactAddressMap img{
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid #7f8c8d;
+    max-width: 600px;
+}
+
+.contactFeedbackWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.contactFeedbackContent{
+    width: 80%;
+    margin: auto;
+}
+
+.contactFeedbackHint{
+    font-size: 0.8em;
+    color: #7f8c8d;
+}
+
+.contactFeedbackInput{
+    width: calc(100% - 40px);
+    height: 50px;
+    border: 1px solid #8e44ad;
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 10px;
+    margin: 10px;
+    resize: none;
+}
+
+.contactFeedbackSubmitButtonWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.contactFeedbackSubmitButton{
+    background-color: #8e44ad;
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.contactFeedbackSubmitButton:hover {
+    opacity: 1;
+}
+
+
+.contactFeedbackSubmitButton a {
+    padding: 10px;
+    color: white;
+}
