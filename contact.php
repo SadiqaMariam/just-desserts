@@ -38,16 +38,18 @@
                             </div>
                         </div>
                         <div class="contactFeedbackWrapper">
-                            <div class="contactFeedbackContent">
+                            <form action="feedbackSuccessful.php" method="post" id="feedbackForm" class="contactFeedbackContent">
                                 <h4 class="contactFeedbackHeader">Feedback</h4>
                                 <span class="contactFeedbackHint">* We would love to hear any feedback that you might have of our services </span>
-                                <textarea placeholder="feedback" class="contactFeedbackInput"></textarea>
+                                <textarea name="feedback" form="feedbackForm" placeholder="feedback" class="contactFeedbackInput"></textarea>
                                 <div class="contactFeedbackSubmitButtonWrapper">
-                                    <button class="contactFeedbackSubmitButton">
-                                        <a href="">Submit</a>
+                                    <button type="submit" class="contactFeedbackSubmitButton">
+                                        <a href="">
+                                            <span>Submit</span>
+                                        </a>
                                     </button>
                                 </div>
-                           </div>
+                           </form>
                         </div>
                     </div>
                 </div>

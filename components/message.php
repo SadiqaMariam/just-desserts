@@ -1,7 +1,7 @@
 <?php
     function getMessage($messageTitle, $message, $messageImg){
         $getMessageImg = function($messageImg){
-            return "<img src='images/unsuccessful.png'/>";
+            return "<img src='images/".$messageImg."'/>";
         };
 
         return
