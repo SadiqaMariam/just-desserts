@@ -10,7 +10,7 @@
         header('location: menu.php');
     }
 
-    class CheckoutOrder {
+    class CheckoutProductOrder {
         public $ProductId;
         public $Quantity;
         public $Price;
@@ -27,20 +27,20 @@
     $productIds = $_SESSION['cart'];
     $dbConnection = getDatabaseConnection();
     $products = getProductsByListOfProductIdsFromDatabaseTable($dbConnection, $productIds);
-    $checkoutOrders = array();
+    $productOrders = array();
     $totalPrice = 0;
 
     foreach($products as &$product){
         $productId = $product->get_productId();
-        $qtyId = "checkoutQtyInput_".$productId;
+        $qtyId = "productOrderQtyInput_".$productId;
         $quantity = $_POST[$qtyId];
         $pricePerUnit = $product->get_price();
 
-        $checkoutOrder = new CheckoutOrder();
-        $checkoutOrder->set_productId($productId);
-        $checkoutOrder->set_quantity($quantity);
-        $checkoutOrder->set_price($pricePerUnit);
-        array_push($checkoutOrders, $checkoutOrder);
+        $productOrder = new CheckoutProductOrder();
+        $productOrder->set_productId($productId);
+        $productOrder->set_quantity($quantity);
+        $productOrder->set_price($pricePerUnit);
+        array_push($productOrders, $productOrder);
         $totalPrice = $totalPrice + ($pricePerUnit * $quantity);
     }
 
@@ -67,7 +67,7 @@
             <div class="pageActiveContent">
                 <?php 
                     echo getOrderProgress('payment');
-                    echo getPaymentDetails($checkoutOrders, $netPrice);
+                    echo getPaymentDetails($productOrders, $netPrice);
                 ?>
             </div>
         </div>

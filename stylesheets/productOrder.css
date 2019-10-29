@@ -1,27 +1,27 @@
-.checkoutDetails{
+.productOrderDetails{
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-.checkoutSummaryWrapper{
+.productOrderSummaryWrapper{
     flex: 1;
 }
 
-.checkoutSummary{
+.productOrderSummary{
     padding: 0px 10px 0px 10px;
     margin: 0px 15px 0px 15px;
     border-left: 5px solid #9b59b6;
     position: absolute;
 }
 
-.checkoutSummaryHeader{
+.productOrderSummaryHeader{
     font-size: 1.0em;
     font-weight: bold;
     color: #8e44ad;
 }
 
-.checkoutSummaryButton{
+.productOrderSummaryButton{
     width: 100%;
     border-radius: 10px;
     padding: 10px;
@@ -31,77 +31,77 @@
     font-size: 1.0em;
     opacity: 0.7;
 }
-.checkoutSummaryButton:hover{
+.productOrderSummaryButton:hover{
     opacity: 1.0; 
 }
-.checkoutSummaryTotalRow, 
-.checkoutSummaryGstRow{
+.productOrderSummaryTotalRow, 
+.productOrderSummaryGstRow{
     font-size: 1.0em;
     color: #7f8c8d;
 }
-.checkoutSummaryNetTotalRow{
+.productOrderSummaryNetTotalRow{
     font-size: 1.2em;
     font-weight: bold;
     color: #9b59b6;
 }
 
-.checkoutSummaryTable{
+.productOrderSummaryTable{
     border-collapse: collapse;
 }
 
-.checkoutTableWrapper{
+.productOrderTableWrapper{
     display: flex;
     justify-content: center;
     flex: 3;
 }
 
-.checkoutTable{
+.productOrderTable{
     width: 100%;
     max-width: 900px;
     text-align: left;
     border-collapse: collapse;
 }
 
-.checkoutTable td,
-.checkoutSummaryTable td {
+.productOrderTable td,
+.productOrderSummaryTable td {
     padding: 10px;
 }
-.checkoutTable tr:nth-child(odd) {
+.productOrderTable tr:nth-child(odd) {
     background-color: #ecf0f1;
 }
-.checkoutProductImgColumn{
+.productOrderProductImgColumn{
     width: 25%;
 }
-.checkoutProductImg{
+.productOrderProductImg{
     border-radius: 10px;
     max-width: 150px;
     height: auto;
 }
-.checkoutRemoveButton{
+.productOrderRemoveButton{
     width: 32px;
     height: 32px;
     border-radius: 50%;
 }
-.checkoutRemoveButtonImg{
+.productOrderRemoveButtonImg{
     width: 16px;
     height: 16px;
 }
-.checkoutName{
+.productOrderName{
     font-size: 0.9em;
 }
-.checkoutPrice{
+.productOrderPrice{
     font-size: 1.2em;
     color: #9b59b6;
 }
-.checkoutSubTotalPrice{
+.productOrderSubTotalPrice{
     font-size: 1.3em;
     font-weight: bold;
     color: #9b59b6;
 }
-.checkoutTableHeader{
+.productOrderTableHeader{
     padding: 10px;
 }
-.checkoutQtyInput{
+.productOrderQtyInput{
     font-size: 1.0em;
     width: 60px;
 }

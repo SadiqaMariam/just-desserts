@@ -1,7 +1,7 @@
 <?php
     include 'components/header.php';
     include 'components/footer.php';
-    include 'components/checkoutDetails.php';
+    include 'components/productOrderDetails.php';
 
     if(!isset($_SESSION['cart'])){
         header('location: menu.php');
@@ -17,8 +17,8 @@
         <link rel="stylesheet" href="stylesheets/header.css">
         <link rel="stylesheet" href="stylesheets/footer.css">
         <link rel="stylesheet" href="stylesheets/pageContent.css">
-        <link rel="stylesheet" href="stylesheets/checkout.css">
-        <script src="eventHandlers/checkout.js"></script>
+        <link rel="stylesheet" href="stylesheets/productOrder.css">
+        <script src="eventHandlers/productOrderDetails.js"></script>
     </head>
     <body>
         <?php echo getHeader('checkout'); ?>
@@ -26,7 +26,7 @@
         <div class="pageContent">
             <div class="pageActiveContent">
                 <p>Shopping Cart</p>
-                <?php echo getCheckoutDetails(); ?>
+                <?php echo getProductOrderDetails(); ?>
             </div>
         </div>
     </body>
