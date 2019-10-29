@@ -2,10 +2,16 @@
     include 'components/header.php';
     include 'components/footer.php';
     include 'components/productOrderDetails.php';
+    include 'database/databaseConnection.php';
+    include 'database/ProductsTableManager.php';
 
     if(!isset($_SESSION['cart'])){
         header('location: menu.php');
     }
+
+    $dbConnection = getDatabaseConnection();
+    $productIds = $_SESSION['cart'];
+    $products = getProductsByListOfProductIdsFromDatabaseTable($dbConnection, $productIds);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +32,7 @@
         <div class="pageContent">
             <div class="pageActiveContent">
                 <p>Shopping Cart</p>
-                <?php echo getProductOrderDetails(); ?>
+                <?php echo getProductOrderDetails($products, false); ?>
             </div>
         </div>
     </body>

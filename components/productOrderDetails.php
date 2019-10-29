@@ -1,23 +1,23 @@
 <?php 
-    include 'database/databaseConnection.php';
-    include 'database/ProductsTableManager.php';
-
-    function getProductOrderDetails(){
-        $dbConnection = getDatabaseConnection();
-        $productIds = $_SESSION['cart'];
-        $products = getProductsByListOfProductIdsFromDatabaseTable($dbConnection, $productIds);
-
-        $getProductOrderDetailRows = function($products){
+    function getProductOrderDetails($products, $readonly){
+        $getProductOrderDetailRows = function($products, $readonly){
             $getProductImage = function($category, $imagePath){
                 return "<img class='productOrderProductImg' src='images/".$category."s/".$imagePath."'/>";
             };
     
-            $getQtyInput = function($productId){
+            $getQtyInput = function($product, $readonly){
+                $productId = $product->get_productId();
+                $quantity = method_exists($product, "get_quantity")
+                    ? $product->get_quantity()
+                    : 1;
+
                 $id = "productOrderQtyInput_".$productId;
                 $classes = "input productOrderQtyInput";
                 $attributes = "type='number' name='".$id."' min='1' value='1'";
                 $onChangeHander = "oninput='productOrderQtyHandler(".$productId.")'";
-                return "<input ".$attributes." id=".$id." class='".$classes."'".$onChangeHander."/>";
+                return $readonly 
+                    ? "<p>".$quantity."</p>"
+                    : "<input ".$attributes." id=".$id." class='".$classes."'".$onChangeHander."/>";
             };
 
             $getSubtotalField = function($productId, $productPrice){
@@ -30,16 +30,23 @@
                 return "<span id=".$id." class='productOrderPrice'>S$ {$productPrice}</span>";
             };
 
-            $tableRows = "";
-            foreach($products as &$product){
-                $tableRows = $tableRows.
+            $getProductRemoveButtonRow = function($readonly){
+                return $readonly ? "" : 
 <<<HTML
-                    <tr class="productOrderProductRow">
                         <td headers="productOrderProductRemoveColumn">
                             <button class = "productOrderRemoveButton">
                                 <img class="productOrderRemoveButtonImg" src="images/remove.png" />
                             </button>
                         </td>
+HTML;
+            };
+
+            $tableRows = "";
+            foreach($products as &$product){
+                $tableRows = $tableRows.
+<<<HTML
+                    <tr class="productOrderProductRow">
+                        {$getProductRemoveButtonRow($readonly)}
                         <td headers="productOrderProductImgColumn">
                             {$getProductImage(
                                 $product->get_category(), 
@@ -52,7 +59,7 @@
                             {$getPriceField($product->get_productId(), $product->get_price())}
                         </td>
                         <td headers="productOrderProuductQtyColumn">
-                            {$getQtyInput($product->get_productId())}
+                            {$getQtyInput($product, $readonly)}
                         </td>
                         <td headers="productOrderProuductSubtotalColumn">
                             {$getSubtotalField($product->get_productId(), $product->get_price())}
@@ -97,6 +104,14 @@ HTML;
 HTML;
         };
 
+        $getProductRemoveColumn = function($readonly){
+            return $readonly ? "" : "<th class='productOrderTableHeader' id='productOrderProductRemove'></th>";
+        };
+
+        $getProductOrderSummaryCheckoutButton = function($readonly){
+            return $readonly ? "" : "<input type='submit' class='productOrderSummaryButton' value='Check Out' />";
+        };
+
         return 
 <<<HTML
         <form action="payment.php" method="post">
@@ -105,7 +120,7 @@ HTML;
                     <table class="productOrderTable">
                         <thead class="productOrderTableHeader">
                             <tr class="productOrderTableHeaderRow">
-                                <th class="productOrderTableHeader" id="productOrderProductRemove"></th>
+                                {$getProductRemoveColumn($readonly)}
                                 <th class="productOrderTableHeader" id="productOrderProuductImg">Product</th>
                                 <th class="productOrderTableHeader" id="productOrderProuductDetails">Details</th>
                                 <th class="productOrderTableHeader" id="productOrderProuductQty">Qty</th>
@@ -113,7 +128,7 @@ HTML;
                             </tr>
                         </thead>
                         <tbody>
-                            {$getProductOrderDetailRows($products)}
+                            {$getProductOrderDetailRows($products, $readonly)}
                         </tbody>
                     </table>
                 </div>
@@ -125,7 +140,7 @@ HTML;
                                 {$getProductOrderSummary($products)}
                             </tbody>
                         </table>
-                        <input type="submit" class="productOrderSummaryButton" value="Check Out" />
+                        {$getProductOrderSummaryCheckoutButton($readonly)}
                     </div>
                 </div>
             </div>
