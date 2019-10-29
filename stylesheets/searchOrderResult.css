@@ -1,0 +1,31 @@
+.searchOrderResultWrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.searchOrderResultContent{
+    max-width: 700px;
+    margin: auto;
+}
+
+.searchOrderResultHint{
+    font-style: italic;
+    font-size: 0.8em;
+    color: #7f8c8d;
+}
+
+.searchOrderResulId{
+    background-color: #ecf0f1;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 2.0em;
+    font-weight: bold;
+    color: #8e44ad;
+}
+
+.searchOrderResultEmail{
+    font-weight: bold;
+}

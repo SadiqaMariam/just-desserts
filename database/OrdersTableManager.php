@@ -8,7 +8,7 @@
         function set_email($Email) { $this->Email = $Email; }
         function set_status($Status) { $this->Status = $Status; }
 
-        function get_orderId() { return $this->ProductId; }
+        function get_orderId() { return $this->OrderId; }
         function get_email() { return $this->Email; }
         function get_status() { return $this->Status; }
     }

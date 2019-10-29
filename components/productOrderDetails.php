@@ -20,9 +20,17 @@
                     : "<input ".$attributes." id=".$id." class='".$classes."'".$onChangeHander."/>";
             };
 
-            $getSubtotalField = function($productId, $productPrice){
+            $getSubtotalField = function($product){
+                $productId = $product->get_productId();
+                $productPrice = $product->get_price();
+                $quantity = method_exists($product, "get_quantity")
+                    ? $product->get_quantity()
+                    : 1;
+                $subTotal = $productPrice * $quantity;
+                $subTotal = number_format((float)$subTotal, 2, '.', '');
+
                 $id = "productOrderSubTotalPrice_".$productId;
-                return "<p id='".$id."' class='productOrderSubTotalPrice'>S$ {$productPrice}<p>";
+                return "<p id='".$id."' class='productOrderSubTotalPrice'>S$ {$subTotal}<p>";
             };
 
             $getPriceField = function($productId, $productPrice){
@@ -62,7 +70,7 @@ HTML;
                             {$getQtyInput($product, $readonly)}
                         </td>
                         <td headers="productOrderProuductSubtotalColumn">
-                            {$getSubtotalField($product->get_productId(), $product->get_price())}
+                            {$getSubtotalField($product)}
                         </td>
                     </tr>
 HTML;
@@ -78,7 +86,11 @@ HTML;
             };
 
             foreach($products as &$product){
-                $total = $total + $product->get_price();
+                $price = $product->get_price();
+                $quantity = method_exists($product, "get_quantity")
+                    ? $product->get_quantity()
+                    : 1;
+                $total = $total + ($price * $quantity);
             }
 
             $total = $getMoneyValue($total);
