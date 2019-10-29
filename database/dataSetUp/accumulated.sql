@@ -284,3 +284,8 @@ CREATE TABLE JustDesserts.ProductOrders (
     CONSTRAINT FOREIGN KEY  (OrderId) REFERENCES Orders(OrderId),
     CONSTRAINT FOREIGN KEY  (ProductId) REFERENCES Products(ProductId)
 );
+
+CREATE TABLE JustDesserts.Feedback (
+    Id int AUTO_INCREMENT PRIMARY KEY,
+    Feedback text NOT NULL
+);
