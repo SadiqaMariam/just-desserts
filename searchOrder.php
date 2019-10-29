@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="stylesheets/orderProgress.css">
         <link rel="stylesheet" href="stylesheets/productOrder.css">
         <link rel="stylesheet" href="stylesheets/searchOrderResult.css">
+        <link rel="stylesheet" href="stylesheets/message.css">
     </head>
     <body>
         <?php echo getHeader('orderreceived'); ?>
