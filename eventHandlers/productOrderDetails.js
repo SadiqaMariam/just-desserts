@@ -1,11 +1,22 @@
 
 function productOrderQtyHandler(productId){
-    var qty = document.getElementById("productOrderQtyInput_"+productId).value;
+    var componentId = "productOrderQtyInput_"+productId;
+    if(!hasValue(componentId)){
+        UpdateFormSubmitButton('productOrderSummaryButton');
+        return;
+    }
+
+    UpdateFormSubmitButton('productOrderSummaryButton');
+    updateSubTotalForProduct(componentId, productId);
+    updateTotalPrice();
+}
+
+function updateSubTotalForProduct(componentId, productId){
+    var qty = document.getElementById(componentId).value;
     var pricePerUnitHtml = document.getElementById("productOrderPrice_"+productId).innerHTML;
     var pricePerUnit = getValueFromMoneyComponent(pricePerUnitHtml);
     var subTotal = (qty * pricePerUnit).toFixed(2);
     document.getElementById("productOrderSubTotalPrice_"+productId).innerHTML = "S$ "+subTotal;
-    updateTotalPrice();
 }
 
 function updateTotalPrice(){

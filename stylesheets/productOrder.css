@@ -21,7 +21,7 @@
     color: #8e44ad;
 }
 
-.productOrderSummaryButton{
+#productOrderSummaryButton{
     width: 100%;
     border-radius: 10px;
     padding: 10px;
@@ -31,7 +31,7 @@
     font-size: 1.0em;
     opacity: 0.7;
 }
-.productOrderSummaryButton:hover{
+#productOrderSummaryButton:hover{
     opacity: 1.0; 
 }
 .productOrderSummaryTotalRow, 

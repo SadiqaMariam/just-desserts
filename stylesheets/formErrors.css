@@ -1,0 +1,15 @@
+.formErrorMessage{
+    font-size: 0.9em;
+    margin: 5px 0px 0px 10px;
+    color: #c0392b;
+}
+
+.formInputError{
+    border: 1px solid #c0392b;
+}
+
+.formErrorButton{
+    pointer-events: none;
+    background-color: #bdc3c7;
+    color: black;
+}

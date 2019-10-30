@@ -14,10 +14,12 @@
                 $id = "productOrderQtyInput_".$productId;
                 $classes = "input productOrderQtyInput";
                 $attributes = "type='number' name='".$id."' min='1' value='1'";
-                $onChangeHandler = "oninput='productOrderQtyHandler(".$productId.")'";
+                $onChangeHandler = "onfocusout='productOrderQtyHandler(".$productId.")'";
+                $qtyInput = "<input ".$attributes." id=".$id." class='".$classes."' ".$onChangeHandler."/>";
+                $qtyError = "<p class='formErrorMessage' id='".$id."_error'></p>";
                 return $readonly 
                     ? "<p>".$quantity."</p>"
-                    : "<input ".$attributes." id=".$id." class='".$classes."' ".$onChangeHandler."/>";
+                    : $qtyInput."<br/>".$qtyError;
             };
 
             $getSubtotalField = function($product){
@@ -124,7 +126,7 @@ HTML;
         };
 
         $getProductOrderSummaryCheckoutButton = function($readonly){
-            return $readonly ? "" : "<input type='submit' class='productOrderSummaryButton' value='Check Out' />";
+            return $readonly ? "" : "<input type='submit' id = 'productOrderSummaryButton' value='Check Out' />";
         };
 
         return 

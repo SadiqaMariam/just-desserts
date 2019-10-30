@@ -34,7 +34,9 @@
         <link rel="stylesheet" href="stylesheets/footer.css">
         <link rel="stylesheet" href="stylesheets/pageContent.css">
         <link rel="stylesheet" href="stylesheets/productOrder.css">
+        <link rel="stylesheet" href="stylesheets/formErrors.css">
         <script src="eventHandlers/productOrderDetails.js"></script>
+        <script src="eventHandlers/formValidations.js"></script>
     </head>
     <body>
         <?php echo getHeader('checkout'); ?>
