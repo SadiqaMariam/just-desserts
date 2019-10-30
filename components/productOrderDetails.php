@@ -14,10 +14,10 @@
                 $id = "productOrderQtyInput_".$productId;
                 $classes = "input productOrderQtyInput";
                 $attributes = "type='number' name='".$id."' min='1' value='1'";
-                $onChangeHander = "oninput='productOrderQtyHandler(".$productId.")'";
+                $onChangeHandler = "oninput='productOrderQtyHandler(".$productId.")'";
                 return $readonly 
                     ? "<p>".$quantity."</p>"
-                    : "<input ".$attributes." id=".$id." class='".$classes."'".$onChangeHander."/>";
+                    : "<input ".$attributes." id=".$id." class='".$classes."' ".$onChangeHandler."/>";
             };
 
             $getSubtotalField = function($product){
@@ -38,23 +38,26 @@
                 return "<span id=".$id." class='productOrderPrice'>S$ {$productPrice}</span>";
             };
 
-            $getProductRemoveButtonRow = function($readonly){
+            $getProductRemoveButtonRow = function($readonly, $index){
+                $link = "<a href='".$_SERVER['PHP_SELF']."?removeProductIndex=".$index."'>";
                 return $readonly ? "" : 
 <<<HTML
                         <td headers="productOrderProductRemoveColumn">
                             <button class = "productOrderRemoveButton">
-                                <img class="productOrderRemoveButtonImg" src="images/remove.png" />
+                                {$link}
+                                    <img class="productOrderRemoveButtonImg" src="images/remove.png" />
+                                </a>
                             </button>
                         </td>
 HTML;
             };
 
             $tableRows = "";
-            foreach($products as &$product){
+            foreach($products as $index=>$product){
                 $tableRows = $tableRows.
 <<<HTML
                     <tr class="productOrderProductRow">
-                        {$getProductRemoveButtonRow($readonly)}
+                        {$getProductRemoveButtonRow($readonly, $index)}
                         <td headers="productOrderProductImgColumn">
                             {$getProductImage(
                                 $product->get_category(), 

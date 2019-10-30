@@ -1,15 +1,16 @@
-function checkoutQtyHandler(productId){
-    var qty = document.getElementById("checkoutQtyInput_"+productId).value;
-    var pricePerUnitHtml = document.getElementById("checkoutPrice_"+productId).innerHTML;
+
+function productOrderQtyHandler(productId){
+    var qty = document.getElementById("productOrderQtyInput_"+productId).value;
+    var pricePerUnitHtml = document.getElementById("productOrderPrice_"+productId).innerHTML;
     var pricePerUnit = getValueFromMoneyComponent(pricePerUnitHtml);
     var subTotal = (qty * pricePerUnit).toFixed(2);
-    document.getElementById("checkoutSubTotalPrice_"+productId).innerHTML = "S$ "+subTotal;
+    document.getElementById("productOrderSubTotalPrice_"+productId).innerHTML = "S$ "+subTotal;
     updateTotalPrice();
 }
 
 function updateTotalPrice(){
     var gstPercentage = 7;
-    var subTotalHtmls = document.getElementsByClassName("checkoutSubTotalPrice");
+    var subTotalHtmls = document.getElementsByClassName("productOrderSubTotalPrice");
     var total = 0.0;
     for(i=0; i<subTotalHtmls.length; i++){
         var subTotal = parseFloat(getValueFromMoneyComponent(subTotalHtmls[i].innerHTML));
@@ -19,9 +20,9 @@ function updateTotalPrice(){
     var gstAmount = ((total * gstPercentage) / 100).toFixed(2);
     var netTotal = total + parseFloat(gstAmount);
 
-    document.getElementById("checkoutSummaryTotal").innerHTML = "S$"+total.toFixed(2);
-    document.getElementById("checkoutSummaryGst").innerHTML = "S$"+gstAmount;
-    document.getElementById("checkoutSummaryNetTotal").innerHTML = "S$"+netTotal.toFixed(2);
+    document.getElementById("productOrderSummaryTotal").innerHTML = "S$"+total.toFixed(2);
+    document.getElementById("productOrderSummaryGst").innerHTML = "S$"+gstAmount;
+    document.getElementById("productOrderSummaryNetTotal").innerHTML = "S$"+netTotal.toFixed(2);
 }
 
 function getValueFromMoneyComponent(htmlContent){

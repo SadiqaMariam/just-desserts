@@ -9,6 +9,16 @@
         header('location: menu.php');
     }
 
+    if(isset($_GET['removeProductIndex'])){
+        $productIndex = $_GET['removeProductIndex'];
+        echo $productIndex;
+        array_splice($_SESSION['cart'], $productIndex, 1); 
+        if(count($_SESSION['cart']) === 0){
+            unset($_SESSION['cart']);
+        }
+        header('location: '.$_SERVER['PHP_SELF'].'?'.SID);
+    }
+
     $dbConnection = getDatabaseConnection();
     $productIds = $_SESSION['cart'];
     $products = getProductsByListOfProductIdsFromDatabaseTable($dbConnection, $productIds);
