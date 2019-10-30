@@ -1,7 +1,7 @@
 
 function productOrderQtyHandler(productId){
     var componentId = "productOrderQtyInput_"+productId;
-    if(!hasValue(componentId)){
+    if(!hasValue(componentId, "&#42;Invalid quantity")){
         UpdateFormSubmitButton('productOrderSummaryButton');
         return;
     }

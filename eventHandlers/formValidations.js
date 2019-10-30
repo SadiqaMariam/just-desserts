@@ -1,4 +1,4 @@
-function hasValue(componentId){
+function hasValue(componentId, errorMessage){
     var element = document.getElementById(componentId);
     var value = element.value;
     var hasValue = value !== null && value !== undefined && value !== '';
@@ -7,7 +7,7 @@ function hasValue(componentId){
         return true;
     }
 
-    AddFormError(element, componentId, "&#42;Required");
+    AddFormError(element, componentId, errorMessage);
     return false;
 }
 
