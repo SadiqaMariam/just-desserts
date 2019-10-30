@@ -25,6 +25,7 @@ function RemoveFormError(element, componentId){
 }
 
 function AddFormError(element, componentId, errorMessage){
+    console.log(componentId);
     document.getElementById(componentId+"_error").innerHTML = errorMessage;
     element.className =  element.className + " formInputError";
 }
@@ -33,7 +34,7 @@ function UpdateFormSubmitButton(buttonId){
     var buttonElement = document.getElementById(buttonId);
     var formErrors = document.getElementsByClassName('formInputError'); 
     if(formErrors && formErrors.length > 0){
-        buttonElement.className = "formErrorButton";
+        buttonElement.className = "formDisableButton";
     } else {
         buttonElement.className = "";
     }

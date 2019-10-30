@@ -25,35 +25,41 @@
                             <legend>Personal Information</legend>
 
                             <label for="paymentUserEmail">Email</label>
-                            <input type="email" name="paymentUserEmail" /><br> 
-                            <div class="paymentUserEmailError">&nbsp;</div>
+                            <input type="email" name="paymentUserEmail" 
+                                id="paymentUserEmail" onfocusout="paymentUserEmailHandler()" /><br> 
+                            <div id="paymentUserEmail_error">&nbsp;</div>
 
                             <label for="paymentUserTelephone">Telephone</label>
-                            <input type="numeric" name="paymentUserTelephone" /><br> 
-                            <div class="paymentUserTelephoneError">&nbsp;</div>
+                            <input type="numeric" name="paymentUserTelephone" 
+                                id="paymentUserTelephone" onfocusout="paymentUserTelephoneHandler()" /><br> 
+                            <div id="paymentUserTelephone_error">&nbsp;</div>
 
                         </fieldset>
                         <fieldset class="paymentDetailsPaymentInformation">
                             <legend>Payment Information</legend>
                             <label for="paymentCardNumber">Card number</label>
-                            <input type="text" name="paymentCardNumber" /><br> 
-                            <div class="paymentCardNumberError">&nbsp;</div>
+                            <input type="text" name="paymentCardNumber" 
+                                id="paymentCardNumber" onfocusout="paymentCardNumberHandler()" /><br> 
+                            <div id="paymentCardNumber_error">&nbsp;</div>
                             
                             <label for="paymentCardHolder">Name on card</label>
-                            <input type="numeric" name="paymentCardHolder" /><br> 
-                            <div class="paymentCardHolderError">&nbsp;</div>
+                            <input type="numeric" name="paymentCardHolder" 
+                                id="paymentCardHolder" onfocusout="paymentCardHolderHandler()" /><br> 
+                            <div id="paymentCardHolder_error">&nbsp;</div>
 
                             <label for="paymentCardExpiryDate">Expiry date</label>
-                            <input type="numeric" name="paymentCardExpiryDate" /><br> 
-                            <div class="paymentCardExpiryDateError">&nbsp;</div>
+                            <input type="numeric" name="paymentCardExpiryDate" 
+                                id="paymentCardExpiryDate" onfocusout="paymentCardExpiryDateHandler()" /><br> 
+                            <div id="paymentCardExpiryDate_error">&nbsp;</div>
 
                             <label for="paymentCardSecurityCode">Security code</label>
-                            <input type="numeric" name="paymentCardSecurityCode" /><br> 
-                            <div class="paymentCardSecurityCodeError">&nbsp;</div>
+                            <input type="numeric" name="paymentCardSecurityCode" 
+                                id="paymentCardSecurityCode" onfocusout="paymentCardSecurityCodeHandler()" /><br> 
+                            <div id="paymentCardSecurityCode_error">&nbsp;</div>
 
                         </fieldset>
                         <div class="makePaymentButtonWrapper">
-                            <input type="submit" class="makePaymentButton" value="Make Payment">
+                            <input type="submit" id="makePaymentButton" class="formDisableButton" value="Make Payment">
                         </div>
                     </form>
                 </div>

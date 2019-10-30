@@ -59,7 +59,9 @@
         <link rel="stylesheet" href="stylesheets/pageContent.css">
         <link rel="stylesheet" href="stylesheets/orderProgress.css">
         <link rel="stylesheet" href="stylesheets/paymentDetails.css">
-    </head>
+        <link rel="stylesheet" href="stylesheets/formErrors.css">
+        <script src="eventHandlers/payment.js"></script>
+        <script src="eventHandlers/formValidations.js"></script>
     <body>
         <?php echo getHeader('payment'); ?>
 

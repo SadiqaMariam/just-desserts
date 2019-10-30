@@ -8,7 +8,7 @@
     border: 1px solid #c0392b;
 }
 
-.formErrorButton{
+.formDisableButton{
     pointer-events: none;
     background-color: #bdc3c7;
     color: black;
