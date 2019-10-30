@@ -13,7 +13,7 @@
 
                 $id = "productOrderQtyInput_".$productId;
                 $classes = "input productOrderQtyInput";
-                $attributes = "type='number' name='".$id."' min='1' value='1'";
+                $attributes = "form='productOrderForm' type='number' name='".$id."' min='1' value='1'";
                 $onChangeHandler = "onfocusout='productOrderQtyHandler(".$productId.")'";
                 $qtyInput = "<input ".$attributes." id=".$id." class='".$classes."' ".$onChangeHandler."/>";
                 $qtyError = "<p class='formErrorMessage' id='".$id."_error'></p>";
@@ -126,42 +126,42 @@ HTML;
         };
 
         $getProductOrderSummaryCheckoutButton = function($readonly){
-            return $readonly ? "" : "<input type='submit' id = 'productOrderSummaryButton' value='Check Out' />";
+            return $readonly ? "" : "<input type='submit' id = 'productOrderSummaryButton' value='Check Out' form='productOrderForm' />";
         };
 
         return 
 <<<HTML
-        <form action="payment.php" method="post">
-            <div class = "productOrderDetails">
-                <div class = "productOrderTableWrapper">
-                    <table class="productOrderTable">
-                        <thead class="productOrderTableHeader">
-                            <tr class="productOrderTableHeaderRow">
-                                {$getProductRemoveColumn($readonly)}
-                                <th class="productOrderTableHeader" id="productOrderProuductImg">Product</th>
-                                <th class="productOrderTableHeader" id="productOrderProuductDetails">Details</th>
-                                <th class="productOrderTableHeader" id="productOrderProuductQty">Qty</th>
-                                <th class="productOrderTableHeader" id="productOrderProuductSubtotal">Subtotal</th>
-                            </tr>
-                        </thead>
+        <form action="payment.php" method="post" id="productOrderForm"></form>
+        <div class = "productOrderDetails">
+            <div class = "productOrderTableWrapper">
+                <table class="productOrderTable">
+                    <thead class="productOrderTableHeader">
+                        <tr class="productOrderTableHeaderRow">
+                            {$getProductRemoveColumn($readonly)}
+                            <th class="productOrderTableHeader" id="productOrderProuductImg">Product</th>
+                            <th class="productOrderTableHeader" id="productOrderProuductDetails">Details</th>
+                            <th class="productOrderTableHeader" id="productOrderProuductQty">Qty</th>
+                            <th class="productOrderTableHeader" id="productOrderProuductSubtotal">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {$getProductOrderDetailRows($products, $readonly)}
+                    </tbody>
+                </table>
+            </div>
+            <div class = "productOrderSummaryWrapper">
+                <div class = "productOrderSummary">
+                    <p class = "productOrderSummaryHeader">Summary</p>
+                    <table class = "productOrderSummaryTable">
                         <tbody>
-                            {$getProductOrderDetailRows($products, $readonly)}
+                            {$getProductOrderSummary($products)}
                         </tbody>
                     </table>
-                </div>
-                <div class = "productOrderSummaryWrapper">
-                    <div class = "productOrderSummary">
-                        <p class = "productOrderSummaryHeader">Summary</p>
-                        <table class = "productOrderSummaryTable">
-                            <tbody>
-                                {$getProductOrderSummary($products)}
-                            </tbody>
-                        </table>
-                        {$getProductOrderSummaryCheckoutButton($readonly)}
-                    </div>
+                    {$getProductOrderSummaryCheckoutButton($readonly)}
                 </div>
             </div>
-        </form>
+        </div>
+        
 HTML;
     }
 ?>
