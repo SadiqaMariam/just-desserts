@@ -55,7 +55,8 @@
                             <div class="orderReceivedId">{$orderId}</div>
                             <div class="orderReceivedRemark">
                                 <p>
-                                    * Note : Please save this order id to track your order. We have also sent an notification email to you. 
+                                    * Note : Please save this order id to track your order. We have also sent an notification email to 
+                                    <span class="orderReceivedRemarkEmail">$email</span>. 
                                 </p>
                             </div>
                             <div class="orderReceivedBackToMenuButtonWrapper">
