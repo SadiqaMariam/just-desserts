@@ -19,14 +19,22 @@ function PaymentButtonClick(){
 
 function paymentUserEmailHandler(){
     var componentId = "paymentUserEmail";
-    hasValue(componentId, "&#42;Required");
+    var hasEmail = hasValue(componentId, "&#42;Required");
     UpdateFormSubmitButton('makePaymentButton');
+
+    return hasEmail;
 }
 
 function paymentUserTelephoneHandler(){
     var componentId = "paymentUserTelephone";
-    hasValue(componentId, "&#42;Required");
+    var isValidTelephone = 
+        hasValue(componentId, "&#42;Invalid telephone number") &&
+        hasNumericValue(componentId, "&#42;Invalid telephone number") &&
+        hasPostivieNumericValue(componentId, "&#42;Invalid telephone number") && 
+        hasExactLength(componentId, 8, "&#42;Telephone number must consist of exactly 8 numbers");
     UpdateFormSubmitButton('makePaymentButton');
+
+    return isValidTelephone;
 }
 
 function paymentCardNumberHandler(){

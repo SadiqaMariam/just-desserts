@@ -25,12 +25,12 @@
                             <legend>Personal Information</legend>
 
                             <label for="paymentUserEmail">Email</label>
-                            <input type="email" name="paymentUserEmail"
+                            <input type="email" name="paymentUserEmail" placeholder="e.g. email@provider.com"
                                 id="paymentUserEmail" onfocusout="paymentUserEmailHandler()" /><br> 
                             <div class='formErrorMessage' id="paymentUserEmail_error">&nbsp;</div>
 
                             <label for="paymentUserTelephone">Telephone</label>
-                            <input type="numeric" name="paymentUserTelephone" 
+                            <input type="number" name="paymentUserTelephone" placeholder="e.g. 62226222"
                                 id="paymentUserTelephone" onfocusout="paymentUserTelephoneHandler()" /><br> 
                             <div class='formErrorMessage' id="paymentUserTelephone_error">&nbsp;</div>
 
@@ -43,17 +43,17 @@
                             <div class='formErrorMessage' id="paymentCardNumber_error">&nbsp;</div>
                             
                             <label for="paymentCardHolder">Name on card</label>
-                            <input type="numeric" name="paymentCardHolder" 
+                            <input type="number" name="paymentCardHolder" 
                                 id="paymentCardHolder" onfocusout="paymentCardHolderHandler()" /><br> 
                             <div class='formErrorMessage' id="paymentCardHolder_error">&nbsp;</div>
 
                             <label for="paymentCardExpiryDate">Expiry date</label>
-                            <input type="numeric" name="paymentCardExpiryDate" 
+                            <input type="number" name="paymentCardExpiryDate" 
                                 id="paymentCardExpiryDate" onfocusout="paymentCardExpiryDateHandler()" /><br> 
                             <div class='formErrorMessage' id="paymentCardExpiryDate_error">&nbsp;</div>
 
                             <label for="paymentCardSecurityCode">Security code</label>
-                            <input type="numeric" name="paymentCardSecurityCode" 
+                            <input type="number" name="paymentCardSecurityCode" 
                                 id="paymentCardSecurityCode" onfocusout="paymentCardSecurityCodeHandler()" /><br> 
                             <div class='formErrorMessage' id="paymentCardSecurityCode_error">&nbsp;</div>
 

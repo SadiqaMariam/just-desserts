@@ -13,7 +13,6 @@ function hasNumericValue(componentId, errorMessage){
     var element = document.getElementById(componentId);
     var value = element.value;
     var hasNumericValue = Number.isInteger(parseFloat(value));
-    console.log(hasNumericValue);
     hasNumericValue 
         ? RemoveFormError(element, componentId)
         : AddFormError(element, componentId, errorMessage);
@@ -30,6 +29,17 @@ function hasPostivieNumericValue(componentId, errorMessage){
         : AddFormError(element, componentId, errorMessage);
 
     return hasPostivieNumericValue;
+}
+
+function hasExactLength(componentId, exactLength, errorMessage){
+    var element = document.getElementById(componentId);
+    var value = element.value;
+    var hasExactLength = value.length === exactLength;
+    hasExactLength 
+        ? RemoveFormError(element, componentId)
+        : AddFormError(element, componentId, errorMessage);
+
+    return hasExactLength;
 }
 
 function RemoveFormError(element, componentId){
