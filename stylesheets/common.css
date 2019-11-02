@@ -8,8 +8,7 @@ html, body {
     min-width: 800px;
 }
 .pageContent{
-    height: calc(100% - 281px);
-    overflow-y: auto;
+    min-height: calc(100% - 131px);
 }
 .input{
     padding: 10px;
