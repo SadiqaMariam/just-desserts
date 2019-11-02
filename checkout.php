@@ -9,10 +9,17 @@
         header('location: menu.php');
     }
 
-    if(isset($_GET['removeProductIndex'])){
-        $productIndex = $_GET['removeProductIndex'];
-        echo $productIndex;
-        array_splice($_SESSION['cart'], $productIndex, 1); 
+    if(isset($_GET['removeProductId'])){
+        $removeProductId = $_GET['removeProductId'];
+        $removeProductIndex=-1;
+        for ($productIndex = 0; $productIndex < count($_SESSION['cart']); $productIndex++) {
+            if($removeProductId === $_SESSION['cart'][$productIndex]){
+                $removeProductIndex = $productIndex;
+            }
+        }
+        if($removeProductIndex >= 0){
+            array_splice($_SESSION['cart'], $removeProductIndex, 1); 
+        }
         if(count($_SESSION['cart']) === 0){
             unset($_SESSION['cart']);
         }

@@ -40,8 +40,8 @@
                 return "<span id=".$id." class='productOrderPrice'>S$ {$productPrice}</span>";
             };
 
-            $getProductRemoveButtonRow = function($readonly, $index){
-                $link = "<a href='".$_SERVER['PHP_SELF']."?removeProductIndex=".$index."'>";
+            $getProductRemoveButtonRow = function($readonly, $productId){
+                $link = "<a href='".$_SERVER['PHP_SELF']."?removeProductId=".$productId."'>";
                 return $readonly ? "" : 
 <<<HTML
                         <td headers="productOrderProductRemoveColumn">
@@ -55,11 +55,11 @@ HTML;
             };
 
             $tableRows = "";
-            foreach($products as $index=>$product){
+            foreach($products as $product){
                 $tableRows = $tableRows.
 <<<HTML
                     <tr class="productOrderProductRow">
-                        {$getProductRemoveButtonRow($readonly, $index)}
+                        {$getProductRemoveButtonRow($readonly, $product->get_productId())}
                         <td headers="productOrderProductImgColumn">
                             {$getProductImage(
                                 $product->get_category(), 
