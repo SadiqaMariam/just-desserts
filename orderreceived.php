@@ -19,6 +19,19 @@
 
     $orderId = gen_uid();
     $email = $_POST['paymentUserEmail'];
+    mail(
+        $email,
+        "JUST DESSERTS - Order received",
+        "
+            Dear sir/mdm, <br><br>
+
+            We have received your order. Please use the following orderId ".$orderId." to track the progress of the order. <br>
+            Thank you. <br><br>
+
+            Kind regards,<br> 
+            Just Desserts
+        "
+    );
     addOrderToOrdersDatabaseTable($dbConnection, $orderId, $email, "processing");
     foreach($productIds as &$productId){
         $quantity = $_POST["quantity_".$productId];
