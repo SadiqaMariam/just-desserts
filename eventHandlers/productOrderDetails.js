@@ -13,7 +13,10 @@ function ProductOrderDetailsButtonClick(){
 
 function productOrderQtyHandler(productId){
     var componentId = "productOrderQtyInput_"+productId;
-    if(!hasValue(componentId, "&#42;Invalid quantity")){
+    if(!hasValue(componentId, "&#42;Required") ||
+       !hasNumericValue(componentId, "&#42;Invalid quantity") || 
+       !hasPostivieNumericValue(componentId, "&#42;Quantity must be <br> more than zero"))
+    {
         UpdateFormSubmitButton('productOrderSummaryButton');
         return;
     }

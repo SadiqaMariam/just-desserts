@@ -16,7 +16,7 @@
                 $attributes = "type='number' name='".$id."' min='1' value='1'";
                 $onChangeHandler = "onfocusout='productOrderQtyHandler(".$productId.")'";
                 $qtyInput = "<input ".$attributes." id=".$id." class='".$classes."' ".$onChangeHandler."/>";
-                $qtyError = "<p class='formErrorMessage' id='".$id."_error'></p>";
+                $qtyError = "<div class='formErrorMessage' id='".$id."_error'></div>";
                 return $readonly 
                     ? "<p>".$quantity."</p>"
                     : $qtyInput."<br/>".$qtyError;

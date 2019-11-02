@@ -2,13 +2,34 @@ function hasValue(componentId, errorMessage){
     var element = document.getElementById(componentId);
     var value = element.value;
     var hasValue = value !== null && value !== undefined && value !== '';
-    if (hasValue){
-        RemoveFormError(element, componentId);
-        return true;
-    }
+    hasValue 
+        ? RemoveFormError(element, componentId)
+        : AddFormError(element, componentId, errorMessage);
 
-    AddFormError(element, componentId, errorMessage);
-    return false;
+    return hasValue;
+}
+
+function hasNumericValue(componentId, errorMessage){
+    var element = document.getElementById(componentId);
+    var value = element.value;
+    var hasNumericValue = Number.isInteger(parseFloat(value));
+    console.log(hasNumericValue);
+    hasNumericValue 
+        ? RemoveFormError(element, componentId)
+        : AddFormError(element, componentId, errorMessage);
+
+    return hasNumericValue;
+}
+
+function hasPostivieNumericValue(componentId, errorMessage){
+    var element = document.getElementById(componentId);
+    var value = element.value;
+    var hasPostivieNumericValue = parseInt(value) > 0;
+    hasPostivieNumericValue 
+        ? RemoveFormError(element, componentId)
+        : AddFormError(element, componentId, errorMessage);
+
+    return hasPostivieNumericValue;
 }
 
 function RemoveFormError(element, componentId){
