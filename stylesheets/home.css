@@ -1,0 +1,43 @@
+.homePageDemoWrapper{
+    width: 100%;
+    background-color: #2f3640;
+    display: flex;
+    justify-content: center;
+}
+.homePageDemo{
+    width: 100%;
+    max-width: 1100px;
+}
+
+.AboutUsWrapper{
+    width: 100%;
+}
+
+.AboutUsHeaderWrapper{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.AboutUsHeaderWrapper p{
+    padding: 10px;
+    font-size: 2em;
+    color: #8e44ad;
+    border-bottom: 2px solid #8e44ad;
+    max-width: 1100px;
+    font-weight: bold;
+}
+
+.AboutUsDescriptionWrapper{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+}
+
+.AboutUsDescriptionWrapper p{
+    max-width: 800px;
+}

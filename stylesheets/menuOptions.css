@@ -1,0 +1,36 @@
+.menuWrapper{
+    width: 100%;
+}
+
+.menuContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.menuOptionWrapper{
+    text-align: center;
+}
+
+.menuOptionWrapper img{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 10px; 
+    border-radius: 10px;
+}
+
+.menuOptionWrapper span{
+    color: #8e44ad;
+    font-weight: bold;
+}
+
+.menuOptionWrapper a{
+    opacity: 0.7;
+}
+
+.menuOptionWrapper a:hover{
+    opacity: 1.0;
+}
