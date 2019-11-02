@@ -2,7 +2,10 @@ function PaymentButtonClick(){
     
     paymentUserEmailHandler();
     paymentUserTelephoneHandler();
-    paymentCardNumberHandler();
+    paymentCardNumberFirstHandler();
+    paymentCardNumberSecondHandler();
+    paymentCardNumberThirdHandler();
+    paymentCardNumberFourthHandler();
     paymentCardHolderHandler();
     paymentCardExpiryDateHandler();
     paymentCardSecurityCodeHandler();
@@ -37,26 +40,45 @@ function paymentUserTelephoneHandler(){
     return isValidTelephone;
 }
 
-function paymentCardNumberHandler(){
-    var componentId = "paymentCardNumber";
-    hasValue(componentId, "&#42;Required");
+function paymentCardNumberFirstHandler()  { paymentCardNumberHandler("paymentCardNumberFirst"); }
+function paymentCardNumberSecondHandler() { paymentCardNumberHandler("paymentCardNumberSecond"); }
+function paymentCardNumberThirdHandler()  { paymentCardNumberHandler("paymentCardNumberThird"); }
+function paymentCardNumberFourthHandler() { paymentCardNumberHandler("paymentCardNumberFourth"); }
+function paymentCardNumberHandler(componentId){
+    var isValidCardNumber = 
+        hasValue(componentId, "&#42;Invalid card number") && 
+        hasNumericValue(componentId, "&#42;Invalid card number") &&
+        hasPostivieNumericValue(componentId, "&#42;Invalid card number") && 
+        hasExactLength(componentId, 4, "&#42;Requires 4 numbers");
     UpdateFormSubmitButton('makePaymentButton');
+
+    return isValidCardNumber;
 }
 
 function paymentCardHolderHandler(){
     var componentId = "paymentCardHolder";
-    hasValue(componentId, "&#42;Required");
+    var hasName = hasValue(componentId, "&#42;Required");
     UpdateFormSubmitButton('makePaymentButton');
+    
+    return hasName;
 }
 
 function paymentCardExpiryDateHandler(){
     var componentId = "paymentCardExpiryDate";
-    hasValue(componentId, "&#42;Required");
+    var hasDate = hasValue(componentId, "&#42;Required");
     UpdateFormSubmitButton('makePaymentButton');
+
+    return hasDate;
 }
 
 function paymentCardSecurityCodeHandler(){
     var componentId = "paymentCardSecurityCode";
-    hasValue(componentId, "&#42;Required");
+    var isValidSecurityCode =
+        hasValue(componentId, "&#42;Invalid security code") && 
+        hasNumericValue(componentId, "&#42;Invalid security code") &&
+        hasPostivieNumericValue(componentId, "&#42;Invalid security code") && 
+        hasExactLength(componentId, 3, "&#42;Requires 3 numbers");
     UpdateFormSubmitButton('makePaymentButton');
+
+    return isValidSecurityCode;
 }
