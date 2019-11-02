@@ -13,7 +13,7 @@
 
                 $id = "productOrderQtyInput_".$productId;
                 $classes = "input productOrderQtyInput";
-                $attributes = "form='productOrderForm' type='number' name='".$id."' min='1' value='1'";
+                $attributes = "type='number' name='".$id."' min='1' value='1'";
                 $onChangeHandler = "onfocusout='productOrderQtyHandler(".$productId.")'";
                 $qtyInput = "<input ".$attributes." id=".$id." class='".$classes."' ".$onChangeHandler."/>";
                 $qtyError = "<p class='formErrorMessage' id='".$id."_error'></p>";
@@ -126,7 +126,9 @@ HTML;
         };
 
         $getProductOrderSummaryCheckoutButton = function($readonly){
-            return $readonly ? "" : "<input type='submit' id = 'productOrderSummaryButton' value='Check Out' form='productOrderForm' />";
+            return $readonly 
+                ? "" 
+                : "<input type='button' id = 'productOrderSummaryButton' value='Check Out' form='productOrderForm' onclick='ProductOrderDetailsButtonClick()'/>";
         };
 
         return 

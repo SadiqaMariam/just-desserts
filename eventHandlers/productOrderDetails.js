@@ -1,4 +1,16 @@
 
+function ProductOrderDetailsButtonClick(){
+    var qtyElements = document.getElementsByClassName('productOrderQtyInput');
+    console.log(qtyElements);
+    for(var qtyIndex=0; qtyIndex<qtyElements.length; qtyIndex++){
+        qtyElements[qtyIndex].setAttribute('form', 'productOrderForm');
+    }
+
+    var button = document.getElementById('productOrderSummaryButton');
+    button.type = 'submit';
+    button.click();
+}
+
 function productOrderQtyHandler(productId){
     var componentId = "productOrderQtyInput_"+productId;
     if(!hasValue(componentId, "&#42;Invalid quantity")){
