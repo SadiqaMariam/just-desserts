@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="stylesheets/footer.css">
         <link rel="stylesheet" href="stylesheets/pageContent.css">
         <link rel="stylesheet" href="stylesheets/contact.css">
+        <link rel="stylesheet" href="stylesheets/formErrors.css">
+        <script src="eventHandlers/contact.js"></script>
+        <script src="eventHandlers/formValidations.js"></script>
     </head>
     <body>
         <?php echo getHeader('contact'); ?>
@@ -41,14 +44,9 @@
                             <form action="feedbackSuccessful.php" method="post" id="feedbackForm" class="contactFeedbackContent">
                                 <h4 class="contactFeedbackHeader">Feedback</h4>
                                 <span class="contactFeedbackHint">* We would love to hear any feedback that you might have of our services </span>
-                                <textarea name="feedback" form="feedbackForm" placeholder="feedback" class="contactFeedbackInput"></textarea>
-                                <div class="contactFeedbackSubmitButtonWrapper">
-                                    <button type="submit" class="contactFeedbackSubmitButton">
-                                        <a href="">
-                                            <span>Submit</span>
-                                        </a>
-                                    </button>
-                                </div>
+                                <textarea name="feedback" placeholder="feedback" id="contactFeedbackInput" onfocusout="feedbackContactHandler()"></textarea>
+                                <div class='formErrorMessage' id="contactFeedbackInput_error">&nbsp;</div>
+                                <input type="button" id="contactFeedbackButton" value="Submit" onClick="feedbackButtonClick()">
                            </form>
                         </div>
                     </div>
