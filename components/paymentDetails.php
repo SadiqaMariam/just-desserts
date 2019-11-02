@@ -59,7 +59,7 @@
 
                         </fieldset>
                         <div class="makePaymentButtonWrapper">
-                            <input type="submit" id="makePaymentButton" class="formDisableButton" value="Make Payment">
+                            <input type="button" id="makePaymentButton" value="Make Payment" onclick="PaymentButtonClick()">
                         </div>
                     </form>
                 </div>

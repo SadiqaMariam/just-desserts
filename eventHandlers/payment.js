@@ -1,3 +1,22 @@
+function PaymentButtonClick(){
+    
+    paymentUserEmailHandler();
+    paymentUserTelephoneHandler();
+    paymentCardNumberHandler();
+    paymentCardHolderHandler();
+    paymentCardExpiryDateHandler();
+    paymentCardSecurityCodeHandler();
+
+    var isDisabled = UpdateFormSubmitButton('makePaymentButton');
+    if(isDisabled){
+        return;
+    }
+
+    var button = document.getElementById('makePaymentButton');
+    button.type = 'submit';
+    button.click();
+}
+
 function paymentUserEmailHandler(){
     var componentId = "paymentUserEmail";
     hasValue(componentId, "&#42;Required");

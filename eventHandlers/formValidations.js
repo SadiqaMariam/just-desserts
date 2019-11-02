@@ -30,11 +30,15 @@ function AddFormError(element, componentId, errorMessage){
 }
 
 function UpdateFormSubmitButton(buttonId){
+    var isDisabled = false;  
     var buttonElement = document.getElementById(buttonId);
     var formErrors = document.getElementsByClassName('formInputError'); 
     if(formErrors && formErrors.length > 0){
         buttonElement.className = "formDisableButton";
+        isDisabled = true;
     } else {
         buttonElement.className = "";
     }
+
+    return isDisabled;
 }
