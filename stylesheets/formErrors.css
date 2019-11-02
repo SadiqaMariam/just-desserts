@@ -1,15 +1,15 @@
 .formErrorMessage{
-    font-size: 0.9em;
-    margin: 5px 0px 0px 10px;
-    color: #c0392b;
+    font-size: 0.9em !important;
+    margin: 5px 0px 0px 10px !important;
+    color: #c0392b !important;
 }
 
 .formInputError{
-    border: 1px solid #c0392b;
+    border: 1px solid #c0392b !important;
 }
 
 .formDisableButton{
-    pointer-events: none;
-    background-color: #bdc3c7;
-    color: black;
+    pointer-events: none !important;
+    background-color: #bdc3c7 !important;
+    color: black !important;
 }

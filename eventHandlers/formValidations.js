@@ -25,7 +25,6 @@ function RemoveFormError(element, componentId){
 }
 
 function AddFormError(element, componentId, errorMessage){
-    console.log(componentId);
     document.getElementById(componentId+"_error").innerHTML = errorMessage;
     element.className =  element.className + " formInputError";
 }
